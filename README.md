@@ -37,10 +37,6 @@ This application __does not__ include any direct interfaces to smart home device
 }
 ```
 
-## mySQL Adapter
-
-There is a very simple mySQL adapter included that allows you to user SQL queries as bindings. You can set the DB credentials in the __mysql.adapter.json__ file that can be found in the adapters directory. Please be aware that this is a very unsafe implementation and should only be used if access to the site's source is impossible (i.e. wall mounted terminals) or where there is no risk anticipated (i.e. in private settings) as it allows anyone to inject any SQL query. 
-
 ### Invoke API Action
 
 If you want to control a ioBroker provided smart home device with this UI you can i.e. set up a canvas module with a group of buttons controlling the devices via __action__-tag:
