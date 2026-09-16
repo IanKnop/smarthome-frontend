@@ -1,0 +1,294 @@
+/*  =========================================================
+    KNOP.FAMILY
+    Smart Home Control Center - Default Color Theme
+   
+    (C) 2020-2021 by Ian Knop, Weiterstadt, Germany
+    www.knop.family 
+    ========================================================= */
+
+:root {
+
+    --colorA:               210;
+    --saturationA:          20%;
+    --lightnessA:           35%;
+    --opacityA:             20%;
+    --colorB:               220;
+    --saturationB:          25%;
+    --lightnessB:           35%;
+    --opacityB:             20%;
+    --colorX:               240;
+    --saturationX:          20%;
+    --lightnessX:           30%;
+    --opacityX:             20%;
+
+    --header-direction:     bottom;
+    --direction:            bottom;
+
+    --subtitle:             #ffbc64;
+    --header-background:    #c3b2c4;
+
+    /* CANVAS */
+    --value-color:          var(--white);
+    --value-back-color:     #353142;    
+
+    --yellow:               #f4d2a4;
+    --yellow-strong:        #ffbc64;
+    --green:                #86ce5a;
+    --red:                  #ed7f7f;
+    --blue:                 #7696d1;
+    --cyan:                 #76abd1;
+    --gray:                 #cccccc;
+    --lila:                 #7f5eba;
+    --orange:               #ffb57d;
+
+    /* GRAPH COLORS */
+    --graph-yellow:         var(--yellow);
+    --graph-green:          var(--green);
+    --graph-red:            var(--red);
+    --graph-blue:           var(--blue);
+    --graph-cyan:           var(--cyan);
+    --graph-gray:           var(--gray);
+    --graph-lila:           var(--lila);
+
+    --header-font-size:                     2vmin!important;
+
+    --window-background:                    #4c425a !important;
+
+    --window-module-gradient:               linear-gradient(0deg, hsl(240deg 24.23% 16.66%), #39334e) !important;
+    --window-header-gradient:               linear-gradient(180deg, hsl(240deg 24.23% 16.66%), #39334e) !important;
+
+    --switch-button-gradient:               linear-gradient(0deg, hsl(326, 20%, 34%), #494876) !important;
+    --switch-button-active-gradient:        linear-gradient(0deg, hsl(314, 25%, 44%), #201f3d) !important;
+    --switch-button-active-gradient:        linear-gradient(0deg, #bc674e, #201f3d) !important;
+
+    --switch-button-active-green-gradient:  linear-gradient(180deg, #222241 15%, #60805b) !important;
+    --switch-button-active-blue-gradient:   linear-gradient(180deg, #222241 15%,rgb(75, 130, 169)) !important;
+    
+    --alt-button-gradient:                  linear-gradient(to var(--direction), hsl(313.71deg 20% 34.31%) 0%, #3c3c57 100%);
+    --alt-button-gradient-reverse:          linear-gradient(to var(--direction), hsl(238.13deg 24.44% 19.35%) 0%, hsl(313.71deg 20% 34.31%) 100%);
+
+    /* Improved Accessibility */
+    --button-size:          8.5vmin!important;
+
+    /*--standard-font:          'Antonio', sans-serif!important;*/
+
+}
+
+.overlay-gradient {
+    background: linear-gradient(0deg, #232746, #845f7d) !important;
+}
+
+.keyboard-button {
+    background:     #ffffff1f !important;
+    box-shadow:     0 0 15px #0000004a !important;
+    margin-left:    2px;
+    margin-right:   2px;
+    align-content:  center;
+    line-height:    unset;
+}
+
+.view-body {
+    background-color:       #1a1824!important;
+    background:             linear-gradient(45deg, #1a1824, #2f2638);
+    
+    background-size:        cover;
+    background-image:       url(../img/bg2.jpg);
+}
+
+.view-title {
+    /*color:                  hsl(266.09deg 61.98% 87.39%);
+    font-family:            'Antonio', sans-serif;*/
+    font-weight:            600;
+}
+
+.view-subtitle {
+    color:                  #fec77f;
+    /*font-family:            'Antonio', sans-serif;*/
+    font-weight:            400;
+}
+
+.fav-button-middle {
+    background:             hsl(313.71deg 20% 34.31%)!important;
+    /*background:             hsl(300deg 22.58% 30.39%) !important;*/
+}
+
+.element-group {
+    border-radius:          calc(1.35 * var(--corner-radius-button)) !important;
+    border:                 0.3vmin solid #ffbc64;
+}
+
+.element-header {
+
+    border:                 none!important;
+    background-color:       #ffbc64!important;
+    background:             linear-gradient(180deg, #f5d4a8, #ffbc64) !important;
+    margin-bottom:          -10px;
+    width:                  100% !important;
+    height:                 4vh;
+    line-height:            unset !important;
+    align-content:          start;
+    text-align:             left!important;
+    text-indent:            10px;
+}
+
+@media (orientation: portrait) {
+
+    .element-header {
+        display: none!important;
+        height:             2.25vh;
+        font-size:          2vmin!important;
+    }
+
+    .element-group {
+        border:             0.2vmin solid #ffbc64;
+    }
+}
+
+.module-header {
+    background:             linear-gradient(-2deg, #694560, #55548d) !important;
+    color:                  #ffffff;
+    font-weight:            400;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 15px;
+    left:                   0;
+    box-shadow:             none !important;
+}
+
+module {
+
+    margin:                 5px;
+    border-radius:          10px;
+    border-bottom:          none !important;
+    border-right:           none !important;
+    background: linear-gradient(136deg, #615b7847, #37263a00);
+}
+
+.border-module {
+    border-top: 1px solid hsl(244.62deg 23.85% 42.75% / 75%);
+    border-left: 1px solid hsl(244.62deg 23.85% 42.75% / 75%);
+
+}
+
+module#view-header {
+    border:                 none;
+    background:             none;
+}
+
+module#view-module-lock-quick {
+    overflow:               unset;
+
+}
+
+.module-header {
+    font-weight: 600;
+}
+
+.switch-control {
+    background:             linear-gradient(0deg, #2c2230, #494876);
+}
+
+.select-control {
+    background:             linear-gradient(180deg, #212241, #3c3c5d)!important;
+
+}
+
+.value-label {
+
+    color:                  #fff!important;
+    text-shadow:            0 0 25px #000000ba;
+    opacity:                0.9;
+}
+
+.value-control-small {
+    background: #363142 !important;
+}
+
+.value-control {
+    background: linear-gradient(180deg, #212241, #3c3c5d)!important;
+}
+
+.canvas-control:not(.airy) {
+    
+    border-top:             1px solid hsl(274, 21%, 77%) !important;
+    border-left:            var(--border-width) solid hsl(276.07deg 25.17% 83.28% / 22%) !important;
+    border-bottom:          1px solid hsl(276.07deg 13.01% 10.06%) !important;
+
+
+}
+
+.element-footer {
+    background:             linear-gradient(0deg, #3d3d5c, #242539)!important;
+
+}
+
+.element-footer-value {
+
+    color:                  #ffffffb8!important;
+    font-weight:            500!important;
+    
+}
+
+.window-title {
+    font-weight:            600!important;
+    color:                  hsl(34.12deg 53.42% 70.98%);
+    line-height:            6vmin;
+}
+
+
+.windowOpen {
+
+    background:             #c24c6b;
+    border:                 3px solid #2e2b3f;
+}
+
+
+.windowClosed {
+
+    background:             #4c9b6a;
+    border:                 3px solid #2e2b3f;
+}
+
+.list-tr-highlighted {    
+    border-radius:          5px!important;
+    padding:                4px!important;
+    width:                  95%!important;
+}
+
+.indicator {
+    background-color: #ffbc64 !important;
+    margin-top: 0.6vmin !important;
+    margin-left: 0.6vmin !important;
+    border-radius: none !important;
+    height: 1vmin!important;
+    width: 1vmin!important;
+}
+
+.indicator-green {
+    background-color: #6cf08c!important;
+    margin-top: 0.6vmin !important;
+    margin-left: 0.6vmin !important;
+    border-radius: 20px !important;
+    height: 1vmin!important;
+    width: 1vmin!important;
+}
+
+.indicator-blue {
+    background-color: #6cc2f0!important;
+}
+
+@media (orientation: portrait) {
+
+    .indicator {
+        width: 0.85vmin !important;
+        height: 0.85vmin !important;
+    }
+
+    .indicator-green {
+       height: 0.85vmin!important;
+       width: 0.85vmin!important;
+    }
+}
+
+.recent-flight-banner {
+    opacity: 0.85 !important;
+}

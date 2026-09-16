@@ -1,0 +1,456 @@
+/* =========================================================
+    Button Group Styles 
+
+
+   ========================================================= */
+
+/* =========================================================
+    BUTTON GROUP ELEMENT
+   ========================================================= */
+
+element {
+
+    position: absolute;
+    display: block;
+
+    text-align: center;
+}
+
+@media (orientation: portrait) {
+    element:not(.floor-select)  {
+        zoom: 1.4;
+    }
+}
+
+.element-header {
+    
+    display: inline-block;
+
+    background: var(--element-header-back-color);
+
+    border: var(--border-width) solid var(--border-color);
+    border-radius: var(--corner-radius-button);
+    border-bottom-right-radius: 0px;
+    border-bottom-left-radius: 0px;
+        
+    color: var(--element-header-font-color);
+    font-family: var(--standard-font);
+    font-size: var(--element-header-font-size);
+    font-weight: 600;
+    text-align: center;
+    text-transform: uppercase;
+    
+    z-index: 99;
+    width: 90%;
+}
+
+.element-group {
+
+    display: flex;
+    z-index: 175;
+
+    border-radius: var(--corner-radius-button);
+    
+    background: transparent;
+    box-shadow: var(--shadow-control);
+    
+    z-index: 100;
+}
+
+.element-footer {
+
+    display: inline-block;
+    position: relative;
+    z-index: 150;
+    
+    background: var(--footer-back-color);
+
+    border: var(--border-width) solid var(--border-color);
+    border-top: none;
+    border-radius: var(--corner-radius-button);
+    border-top-right-radius: 0;
+    border-top-left-radius: 0;
+    
+    box-shadow: 0 1.5vw 2vw 0px #00000022;
+
+    width: 90%;
+    margin-top: 0.05vw;
+}
+
+.element-footer-value {
+    
+    position: absolute;
+
+    font-family: var(--standard-font);
+    color: var(--module-footer-font-color);
+
+    text-transform: uppercase;
+    font-weight: 600;
+
+    margin-left: 1vmin;
+    margin-right: 1vmin;
+
+}
+
+.element-footer-small-value {
+    
+    font-size: var(--footer-small-value-size);
+}
+
+/* =========================================================
+    BUTTON TYPES
+   ========================================================= */
+
+.select-control {
+
+    z-index: 155;
+    background: var(--scene-button-gradient);
+    box-shadow: var(--shadow-button);
+}
+
+.navigate-control {
+
+    z-index: 155;
+    background: var(--switch-button-gradient);
+    box-shadow: var(--shadow-button);
+}
+
+.switch-control {
+
+    z-index: 155;
+    background: var(--switch-button-gradient);
+    box-shadow: var(--shadow-button);
+}
+
+.switch-control-active {
+
+    background: var(--switch-button-active-gradient)!important;
+    box-shadow: var(--shadow-button-pressed)!important;
+}
+
+.switch-control-active-red {
+
+    background: var(--switch-button-active-red-gradient)!important;
+    box-shadow: var(--shadow-button-pressed)!important;
+}
+
+.switch-control-active-green {
+
+    background: var(--switch-button-active-green-gradient)!important;
+    box-shadow: var(--shadow-button-pressed)!important;
+}
+
+.switch-control-active-blue {
+
+    background: var(--switch-button-active-blue-gradient)!important;
+    box-shadow: var(--shadow-button-pressed)!important;
+}
+
+
+/* =========================================================
+    INDICATORS
+   ========================================================= */
+
+.indicator {
+
+    display: block;
+    position: relative;
+    
+    width: calc(100% - 1vmin);
+    height: 0.5vmin;
+    
+    /* small inidcator: width: 1.25vmin;
+    height: 1.25vmin; */
+    
+    margin-top: 0.5vmin;
+    margin-left: 0.5vmin;
+    /* circle: border-radius: 2vmin; */
+    border-radius: 0.25vmin;
+    background-color: var(--yellow-strong);
+
+}
+
+.indicator-red {
+
+    background-color: var(--red);
+}
+
+.indicator-green {
+
+    background-color: var(--green);
+}
+
+.indicator-blue {
+
+    background-color: var(--blue);
+}
+
+.app-control {
+
+    background: var(--app-button-gradient)!important;
+    box-shadow: var(--shadow-control)!important;
+    z-index: 155;
+}
+
+.scene-control {
+
+    background: var(--app-button-gradient)!important;
+    box-shadow: var(--shadow-control)!important;
+    z-index: 155;
+}
+
+/* =========================================================
+    POSITION BASED BUTTON STYLING
+   ========================================================= */
+
+.single-button {
+
+    border-radius: var(--corner-radius-button);
+    
+}
+
+.group-button-left {
+
+    border-top-left-radius: var(--corner-radius-button);
+    border-bottom-left-radius: var(--corner-radius-button);
+    
+}
+
+.group-button-center {
+
+    border-left: none;
+    
+}
+
+.group-button-right {
+    
+    border-top-right-radius: var(--corner-radius-button);
+    border-bottom-right-radius: var(--corner-radius-button);
+    border-left: none;
+}
+
+/* =========================================================
+    BUTTON CONTENT
+   ========================================================= */
+
+.button-image {
+
+    display: block;
+    position: absolute;
+
+    background-size: var(--button-icon-size);
+    background-position: center;
+    background-repeat: no-repeat;
+
+}
+
+.button-text {
+
+    font-size: 4vmin!important;
+    display: flex!important;
+    align-items: center!important;
+    justify-content: space-evenly;
+    font-weight: 200!important;
+    vertical-align: top!important;
+
+    /*width: calc(4 * var(--button-size))!important;*/
+}
+
+.button-image-text {
+
+    font-size: 4vmin!important;
+    display: flex!important;
+    align-items: center!important;
+    justify-content: space-evenly;
+    font-weight: 600!important;
+    vertical-align: top!important;
+
+    background-position: left;
+    background-size: 4vmin!important;
+    background-position-x: 2.5vmin;
+    text-indent: 7.5vmin;
+
+    /*width: calc(4 * var(--button-size))!important;*/
+}
+
+
+/* =========================================================
+    SCREEN SIZE DEPENDEND STYLING 
+   ========================================================= */
+
+@media (min-aspect-ratio: 5/4) {
+
+    .element-header {
+        font-size:  var(--header-font-size);
+        line-height:  var(--header-line-height);
+    }
+
+    .element-footer {
+        height: var(--footer-height);
+    }
+
+    .element-footer-small {
+
+        height: var(--footer-height-small);
+    }
+
+    .element-footer-value {
+    
+        font-size: var(--footer-value-size);
+    }
+
+    .element-footer-small-value {
+    
+        font-size: var(--footer-small-value-size)!important;
+    }
+
+    .canvas-control {
+        width: var(--button-size);
+        height: var(--button-size);
+    }
+
+    .button-image {
+        width: var(--button-size);  
+        height: var(--button-size);
+    }
+    
+}
+
+@media (max-aspect-ratio: 5/4) {
+
+    .element-header {
+        font-size:  var(--header-font-size-vertical);
+        line-height:  var(--header-line-height-vertical);
+    }
+
+    .element-footer {
+        height: var(--footer-height-vertical);
+    }
+
+    .element-footer-small {
+
+        height: var(--footer-height-small-vertical);
+    }
+
+    .element-footer-value {
+    
+        font-size: var(--footer-value-size-vertical);
+    }
+
+    .element-footer-small-value {
+    
+        font-size: var(--footer-small-value-size-vertical)!important;
+    }
+
+    .canvas-control {
+        width: var(--button-size-vertical);
+        height: var(--button-size-vertical);
+    }
+    
+    .button-image {
+        width: var(--button-size-vertical);
+        height: var(--button-size-vertical);
+    }
+}
+
+/* =========================================================
+    VALUE LABEL
+   ========================================================= */
+
+.value-control {
+    
+    color: var(--value-color)!important;
+    background: var(--value-back-color);
+    /*background: var(--mainB);*/
+
+
+    font-size: 4vmin!important;
+    display: inline-flex!important;
+    align-items: center!important;
+    font-weight: 600!important;
+    vertical-align: top!important;
+
+     width: calc(2 * var(--button-size))!important;
+
+}
+
+@media (orientation: portrait) {
+    .value-control {
+        width: calc(2 * var(--button-size-vertical))!important;
+    }
+}
+
+.value-control-medium {
+    
+    background: var(--mainB);
+    width: calc(1.33 * var(--button-size))!important;
+
+}
+
+.value-control-flex {
+    
+    background: var(--mainB);
+    width: auto!important;
+
+}
+
+.value-control-small {
+    
+    background: var(--mainB);
+    width: var(--button-size)!important;
+
+}
+
+.value-label { 
+
+    width: inherit;
+}
+
+.canvas-control-combo-list {
+
+    position: fixed;
+    display: block;
+    overflow: scroll;
+    
+    color: var(--value-color)!important;
+    background: var(--value-back-color);
+
+    border-radius: var(--corner-radius-button);
+    border-left: var(--border-width) solid var(--border-color);
+    border-top: var(--border-width) solid var(--border-color);
+    
+    cursor:                 pointer;
+
+    padding-top:            2vmin;
+    padding-bottom:         2vmin;
+}
+ 
+.canvas-control-combo-item {
+
+    display:                flex;
+    font-size:              4vmin;
+    font-weight:            600;
+    text-align:             left;    
+    text-indent:            2vmin;
+        
+}
+
+@media (orientation: portrait) {
+    .value-label {
+        font-size:          2.75vmin;
+    }
+}
+
+.toolbar-button {
+
+    width:                  calc(0.75 * var(--button-size))!important;
+    height:                 calc(0.75 * var(--button-size))!important;
+
+}
+
+.toolbar-button-image {
+    position:               relative;
+    width:                  80%;
+    margin:                 auto;
+}
+

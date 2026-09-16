@@ -1,0 +1,186 @@
+<div id="cc-screensaver" class="screen-saver" style="transition: 3s;">
+    <script>
+        var blockScreenSaver = {{[block-screensaver]}};
+    </script>
+    <div id="cc-screensaver-dim" class="screen-saver-dim"></div> 
+    <div id="cc-screensaver-date" style="transition: 3s; position: absolute; width: 100%; text-align: center; top: 4vh; font-family: 'Saira Condensed'; font-weight: 200; font-size: 5vh; line-height: 6.5vh; opacity: 0.85; color: var(--wallpaper-clock-color);">{{[CURRENT_DATE_LONG]}}</div>
+    <div id="cc-screensaver-clock" style="transition: 3s; position: absolute; z-index: 9999999; width: 100%; text-align: center; margin: auto; top: 17.25vh; color: var(--wallpaper-clock-color); font-family: 'Google Sans'; font-size: 21.5vh; font-weight: 400; line-height: 7.5vh; opacity: 0.85;">{{[CURRENT_TIME]}}</div>
+
+    <div id="screensaver-grid" class="grid" style="grid-template-columns: {{[columns]}}; grid-template-rows: {{[rows]}};"> 
+        {{[lock-modules]}}
+    </div>
+</div>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script>
+currentView = '{{[id]}}';
+soundEnabled = {{[soundEnabled]}};
+</script>
+<body class="view-body" style="" onload="SmartHomeUI.initialize()">
+<div id="view-grid" class="grid" style="grid-template-columns: {{[columns]}}; grid-template-rows: {{[rows]}};"> 
+    {{[windows]}}
+    {{[vars]}}
+    {{[header]}}
+    {{[modules]}}
+    {{[footer]}}
+</div>
+<div id="cc-ping" style="display: flex; align-items: center; height: 100%; visibility: collapse;">
+    <!--<div class="lds-dual-ring" style="margin: auto; zoom: 5;"></div>-->
+    <div class="lds-ripple" style="margin: auto; zoom: 5;"><div></div><div></div></div>
+    <!--<div class="lds-ring" style="margin: auto; zoom: 5;"><div></div><div></div><div></div><div></div></div>-->
+</div>
+<module id="cc-msgbox" class="border rounded" style="visibility: collapse; z-index: 10000; background: var(--window-module-gradient-opaque); box-shadow: 0 0 60px 0px rgb(12 22 48); display: flex; position: absolute; width: 50%; height: 30%; top: 35%; left: 25%;">
+    <div id="cc-msgbox-text" style="text-align: center; font-size: 3.5vmin; line-height: 6vh; align-self: center; margin: auto;">
+    </div>
+    <div id="cc-msgbox-header">
+        <div id="cc-msgbox-close" style="visibility: collapse; position: absolute; top: 5%; right: 2.5%; cursor: pointer;" onclick="SmartHomeUI.MessageBox.close();">
+            <img style="height: 3.5vh;" src="img/icons/cancel.svg">
+        </div>
+    </div>
+</module>
+<style>
+    .keyboard-button {
+        display:    inline-block;
+        width:      70px; 
+        height:     70px;
+        font-size:  40px;
+        font-weight: 600;
+        text-align: center;
+    }
+</style>
+<div id="cc-combobox-list" style="position: absolute; display: flex; visibility: collapse; z-index: 10001; background: rgb(0 0 0 / 60%); width: 100%; height: 100%; top: 0%; left: 0%;" onclick="ControlProviders.controlGroup.toggleComboList(this);">
+    <module id="cc-combobox-list-content" class="border rounded canvas-control-combo-list overlay-gradient" style="position: relative; z-index: 10002; background: var(--window-module-gradient); box-shadow: 0 0 60px 0px rgb(0 0 0); width: 65%; max-height: 50%; margin: auto;">
+    </module>
+</div>
+<module id="cc-keyboard" class="border rounded overlay-gradient" style="
+        visibility: collapse; 
+        z-index: 10000; 
+        background: var(--window-background)!important; 
+        box-shadow: 0 0 60px 0px rgb(12 22 48); 
+        border: 1px solid #ffffff75;
+        display: flex; 
+        position: absolute; 
+        width: 90%; 
+        height: 80%; 
+        top: 15%; 
+        left: 5%;
+    ">
+    <div id="cc-keyboard-presets" style="
+        position: absolute;
+        display: flex;
+        overflow: scroll;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        font-size: 3.5vmin;
+        height: 11.5vmin;
+        width: 95%;
+        top: 9.5vh;
+        margin-left: 2.5%;
+        "></div>
+    <div id="cc-keyboard-presets-overlay" style="
+        position: absolute;
+        pointer-events: none;
+        display: block;
+        width: 100%;
+        top: 4vh;
+        bottom: 0;
+        background: linear-gradient(270deg, var(--window-background) 0%, var(--window-background) 5%, #694f6e00 10%, #694f6e00 90%, var(--window-background) 95%, var(--window-background) 100%);
+    "></div>
+    <div id="cc-keyboard-text" style="
+        position: absolute;
+        display: block;
+        text-align: center;
+        font-size: 4.5vmin;
+        height: 7.5vh;
+        width: 80%;
+        top: 2vh;
+        margin-left: 10%;
+        background: #0000003d;
+        border-radius: 7px;
+        overflow: scroll;
+        "></div>
+    <div id="cc-keyboard-buttons" style="
+        position: absolute; 
+        display: block; 
+        width: 100%; 
+        top: 20vh; 
+        bottom: 2vh; 
+        text-align: center;
+        ">
+        <div id="cc-keyboard-buttons-inner" style="
+                display: block;
+                align-self: center;
+                bottom: 0;
+                top: 0;
+                left: 0;
+                right: 0;
+                position: absolute;
+            ">
+            <div id="cc-key-1" class="canvas-control switch-control single-button keyboard-button" style="" onclick="SmartHomeUI.Keyboard.key(this);">1</div>
+            <div id="cc-key-2" class="canvas-control switch-control single-button keyboard-button" style="" onclick="SmartHomeUI.Keyboard.key(this);">2</div>
+            <div id="cc-key-3" class="canvas-control switch-control single-button keyboard-button" style="" onclick="SmartHomeUI.Keyboard.key(this);">3</div>
+            <div id="cc-key-4" class="canvas-control switch-control single-button keyboard-button" style="" onclick="SmartHomeUI.Keyboard.key(this);">4</div>
+            <div id="cc-key-5" class="canvas-control switch-control single-button keyboard-button" style="" onclick="SmartHomeUI.Keyboard.key(this);">5</div>
+            <div id="cc-key-6" class="canvas-control switch-control single-button keyboard-button" style="" onclick="SmartHomeUI.Keyboard.key(this);">6</div>
+            <div id="cc-key-7" class="canvas-control switch-control single-button keyboard-button" style="" onclick="SmartHomeUI.Keyboard.key(this);">7</div>
+            <div id="cc-key-8" class="canvas-control switch-control single-button keyboard-button" style="" onclick="SmartHomeUI.Keyboard.key(this);">8</div>
+            <div id="cc-key-9" class="canvas-control switch-control single-button keyboard-button" style="" onclick="SmartHomeUI.Keyboard.key(this);">9</div>
+            <div id="cc-key-0" class="canvas-control switch-control single-button keyboard-button" style="" onclick="SmartHomeUI.Keyboard.key(this);">0</div>
+            <div id="cc-key-del" class="canvas-control switch-control single-button keyboard-button" style="background-image: url('img/icons/2.0/switches/delete.png') !important; background-position: center !important; background-size: 50% !important; background-repeat: no-repeat !important;" onclick="SmartHomeUI.Keyboard.erase();">&nbsp;</div>
+            <div id="cc-key-del-all" class="canvas-control switch-control single-button keyboard-button" style="background-image: url('img/icons/delete2.png') !important; background-position: center !important; background-size: 40% !important; background-repeat: no-repeat !important;" onclick="SmartHomeUI.Keyboard.eraseAll();">&nbsp;</div>
+            <br/>
+            
+            <div id="cc-key-10" class="canvas-control switch-control single-button keyboard-button" style="margin-top: 10px;" onclick="SmartHomeUI.Keyboard.key(this);">Q</div>
+            <div id="cc-key-11" class="canvas-control switch-control single-button keyboard-button" style="" onclick="SmartHomeUI.Keyboard.key(this);">W</div>
+            <div id="cc-key-12" class="canvas-control switch-control single-button keyboard-button" style="" onclick="SmartHomeUI.Keyboard.key(this);">E</div>
+            <div id="cc-key-13" class="canvas-control switch-control single-button keyboard-button" style="" onclick="SmartHomeUI.Keyboard.key(this);">R</div>
+            <div id="cc-key-14" class="canvas-control switch-control single-button keyboard-button" style="" onclick="SmartHomeUI.Keyboard.key(this);">T</div>
+            <div id="cc-key-15" class="canvas-control switch-control single-button keyboard-button" style="" onclick="SmartHomeUI.Keyboard.key(this);">Z</div>
+            <div id="cc-key-16" class="canvas-control switch-control single-button keyboard-button" style="" onclick="SmartHomeUI.Keyboard.key(this);">U</div>
+            <div id="cc-key-17" class="canvas-control switch-control single-button keyboard-button" style="" onclick="SmartHomeUI.Keyboard.key(this);">I</div>
+            <div id="cc-key-18" class="canvas-control switch-control single-button keyboard-button" style="" onclick="SmartHomeUI.Keyboard.key(this);">O</div>
+            <div id="cc-key-19" class="canvas-control switch-control single-button keyboard-button" style="" onclick="SmartHomeUI.Keyboard.key(this);">P</div>
+            <div id="cc-key-20" class="canvas-control switch-control single-button keyboard-button" style="" onclick="SmartHomeUI.Keyboard.key(this);">Ü</div>
+            <br />
+            <div id="cc-key-21" class="canvas-control switch-control single-button keyboard-button" style="margin-top: 10px;" onclick="SmartHomeUI.Keyboard.key(this);">A</div>
+            <div id="cc-key-22" class="canvas-control switch-control single-button keyboard-button" style="" onclick="SmartHomeUI.Keyboard.key(this);">S</div>
+            <div id="cc-key-23" class="canvas-control switch-control single-button keyboard-button" style="" onclick="SmartHomeUI.Keyboard.key(this);">D</div>
+            <div id="cc-key-24" class="canvas-control switch-control single-button keyboard-button" style="" onclick="SmartHomeUI.Keyboard.key(this);">F</div>
+            <div id="cc-key-25" class="canvas-control switch-control single-button keyboard-button" style="" onclick="SmartHomeUI.Keyboard.key(this);">G</div>
+            <div id="cc-key-26" class="canvas-control switch-control single-button keyboard-button" style="" onclick="SmartHomeUI.Keyboard.key(this);">H</div>
+            <div id="cc-key-27" class="canvas-control switch-control single-button keyboard-button" style="" onclick="SmartHomeUI.Keyboard.key(this);">J</div>
+            <div id="cc-key-28" class="canvas-control switch-control single-button keyboard-button" style="" onclick="SmartHomeUI.Keyboard.key(this);">K</div>
+            <div id="cc-key-29" class="canvas-control switch-control single-button keyboard-button" style="" onclick="SmartHomeUI.Keyboard.key(this);">L</div>
+            <div id="cc-key-30" class="canvas-control switch-control single-button keyboard-button" style="" onclick="SmartHomeUI.Keyboard.key(this);">Ö</div>
+            <div id="cc-key-31" class="canvas-control switch-control single-button keyboard-button" style="" onclick="SmartHomeUI.Keyboard.key(this);">Ä</div>
+            <br/>
+            <div id="cc-key-32" class="canvas-control switch-control single-button keyboard-button" style="margin-top: 10px;">Y</div>
+            <div id="cc-key-33" class="canvas-control switch-control single-button keyboard-button" style="" onclick="SmartHomeUI.Keyboard.key(this);">X</div>
+            <div id="cc-key-34" class="canvas-control switch-control single-button keyboard-button" style="" onclick="SmartHomeUI.Keyboard.key(this);">C</div>
+            <div id="cc-key-35" class="canvas-control switch-control single-button keyboard-button" style="" onclick="SmartHomeUI.Keyboard.key(this);">V</div>
+            <div id="cc-key-36" class="canvas-control switch-control single-button keyboard-button" style="" onclick="SmartHomeUI.Keyboard.key(this);">B</div>
+            <div id="cc-key-37" class="canvas-control switch-control single-button keyboard-button" style="" onclick="SmartHomeUI.Keyboard.key(this);">N</div>
+            <div id="cc-key-38" class="canvas-control switch-control single-button keyboard-button" style="" onclick="SmartHomeUI.Keyboard.key(this);">M</div>
+            <div id="cc-key-39" class="canvas-control switch-control single-button keyboard-button" style="" onclick="SmartHomeUI.Keyboard.key(this);">-</div>
+            <div id="cc-key-40" class="canvas-control switch-control single-button keyboard-button" style="" onclick="SmartHomeUI.Keyboard.key(this);">.</div>
+            <div id="cc-key-41" class="canvas-control switch-control single-button keyboard-button" style="" onclick="SmartHomeUI.Keyboard.key(this);">,</div>
+            <br/>
+            <div id="cc-key-shift" class="canvas-control switch-control single-button keyboard-button" style="margin-top: 10px; width: fit-content; padding-left: 15px; padding-right: 15px;" onclick="SmartHomeUI.Keyboard.shift();">A → a</div>
+            <div id="cc-key-space" class="canvas-control switch-control single-button keyboard-button" style="width: 350px;" onclick="SmartHomeUI.Keyboard.space();">&nbsp;</div>
+            <div id="cc-key-ok" class="canvas-control switch-control single-button keyboard-button" style="padding-left: 25px; padding-right: 25px; background-image: url('img/icons/check3.png') !important; background-position: center !important; background-size: 30% !important; background-repeat: no-repeat !important;" onclick="SmartHomeUI.Keyboard.save();">&nbsp;</div>
+            <br/>
+        </div>
+    </div>
+    <div id="cc-keyboard-header">
+        <div id="cc-keyboard-close" style="position: absolute; top: 5%; right: 2.5%; cursor: pointer;" onclick="SmartHomeUI.Keyboard.close();">
+            <img style="height: 3.5vh;" src="img/icons/cancel.svg">
+        </div>
+    </div>
+</module>
+
+
+
+
+
+</body>

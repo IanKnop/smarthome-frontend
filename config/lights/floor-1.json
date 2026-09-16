@@ -1,0 +1,660 @@
+{
+    "img": "img/floorplans/cc-plan-1.svg",
+    "canvasElements": [
+        {
+            "#COMMENT": "----===== Window Status Indication Image (Schlafzimmer) =====----", 
+            "type": "image",
+            "class": "windowClosed",
+            "style":
+            {
+                "left": "-0.2vmin",
+                "top": "60%"
+            },
+            "conditions": [
+                {
+                    "binding": "window/bedroom.status",
+                    "bindingProvider": "smarthome",
+                    "value": true,
+                    "class": "windowOpen"
+                },
+                {
+                    "binding": "window/bedroom.status",
+                    "bindingProvider": "smarthome",
+                    "value": false,
+                    "class": "windowClosed"
+                }
+            ]
+        },
+        {
+            "#COMMENT": "----===== Window Status Indication Image (Ankleidezimmer) =====----", 
+            "type": "image",
+            "class": "windowClosed",
+            "style":
+            {
+                "right": "-0.25vmin",
+                "top": "10%"
+            },
+            "conditions": [
+                {
+                    "binding": "window/dressing.status",
+                    "bindingProvider": "smarthome",
+                    "value": true,
+                    "class": "windowOpen"
+                },
+                {
+                    "binding": "window/dressing.status",
+                    "bindingProvider": "smarthome",
+                    "value": false,
+                    "class": "windowClosed"
+                }
+            ]
+        },
+        {
+            "#COMMENT": "----===== Window Status Indication Image (Susannes Zimmer) =====----", 
+            "type": "image",
+            "class": "windowClosed",
+            "style":
+            {
+                "right": "-0.25vmin",
+                "top": "60%"
+            },
+            "conditions": [
+                {
+                    "binding": "window/susanne.status",
+                    "bindingProvider": "smarthome",
+                    "value": true,
+                    "class": "windowOpen"
+                },
+                {
+                    "binding": "window/susanne.status",
+                    "bindingProvider": "smarthome",
+                    "value": false,
+                    "class": "windowClosed"
+                }
+            ]
+        },
+        {
+            "#COMMENT": "----===== Window Status Indication Image (Bad) =====----", 
+            "type": "image",
+            "class": "windowClosed",
+            "style":
+            {
+                "left": "-0.2vmin",
+                "top": "10%"
+            },
+            "conditions": [
+                {
+                    "binding": "window/bath.status",
+                    "bindingProvider": "smarthome",
+                    "value": true,
+                    "class": "windowOpen"
+                },
+                {
+                    "binding": "window/bath.status",
+                    "bindingProvider": "smarthome",
+                    "value": false,
+                    "class": "windowClosed"
+                }
+            ]
+        },
+        {
+            "#COMMENT": "----===== Button Group with Light Controls (Ankleidezimmer) =====----", 
+            "type": "buttongroup",
+            "title": "Dressing",
+            "left": "67%",
+            "top": "15%",
+            "controls": [
+                {
+                    "type": "switch",
+                    "id": "switch-ankleidezimmer",
+                    "binding": "group/dressing",
+                    "bindingProvider": "smarthome",
+                    "img": "img/icons/2.0/power.png",
+                    "style": {
+                        "content": "background-size: 70%;"
+                    },
+                    "action": {
+                        "adapter": "smarthome",
+                        "method": "trigger",
+                        "payload": {
+                            "deviceId": "group/dressing",
+                            "sceneId": 10
+                        },
+                        "sound": "KEY1"
+                    }
+                },
+                {
+                    "type": "select",
+                    "img": "img/icons/2.0/relax.png",
+                    "style": {
+                        "content": "background-size: 65%;"
+                    },
+                    "action": {
+                        "adapter": "smarthome",
+                        "method": "scene",
+                        "payload": {
+                            "deviceId": "group/dressing",
+                            "sceneId": 10
+                        },
+                        "sound": "SCENE"
+                    }
+                },
+                {
+                    "type": "select",
+                    "img": "img/icons/2.0/bright.png",
+                    "style": {
+                        "content": "background-size: 50%;"
+                    },
+                    "action": {
+                        "adapter": "smarthome",
+                        "method": "scene",
+                        "payload": {
+                            "deviceId": "group/dressing",
+                            "sceneId": 11
+                        },
+                        "sound": "SCENE"
+                    }
+                }
+            ],
+            "footer": 
+            [
+                {
+                    "id": "room_dressing.humidity",
+                    "binding": "climate/dressing.humidity",
+                    "bindingProvider": "smarthome",
+                    "decimals": 1,
+                    "suffix": "%",
+                    "align": "left"
+                },
+                {
+                    "#COMMENT": "----===== Battery Info =====----", 
+                    "__external": "_snippets/canvas/battery-footer-item",
+                    "__externalArgs": {
+                        "target": "dressing"
+                    } 
+                },
+                {
+                    "id": "room_dressing.temp",
+                    "binding": "climate/dressing.temperature",
+                    "bindingProvider": "smarthome",
+                    "decimals": 1,
+                    "suffix": "°",
+                    "align": "right"
+                }
+            ]
+        },
+        {
+            "#COMMENT": "----===== Button Group with Light Controls (Badezimmer) =====----", 
+            "type": "buttongroup",
+            "title": "Bad",
+            "left": "6%",
+            "top": "15%",
+            "controls": [
+                {
+                    "type": "switch",
+                    "id": "switch-bad",
+                    "binding": "group/bath",
+                    "bindingProvider": "smarthome",
+                    "img": "img/icons/2.0/power.png",
+                    "style": {
+                        "content": "background-size: 70%;"
+                    },
+                    "action": {
+                        "adapter": "smarthome",
+                        "method": "trigger",
+                        "payload": {
+                            "deviceId": "group/bath"
+                        },
+                        "sound": "KEY1"
+                    }
+                },
+                {
+                    "type": "select",
+                    "img": "img/icons/2.0/bright.png",
+                    "style": {
+                        "content": "background-size: 50%;"
+                    },
+                    "action": {
+                        "adapter": "smarthome",
+                        "method": "scene",
+                        "payload": {
+                            "deviceId": "group/bath",
+                            "sceneId": 0
+                        },
+                        "sound": "SCENE"
+                    }
+                }
+            ],
+            "footer": 
+            [
+                {
+                    "id": "room_bath.humidity",
+                    "binding": "climate/bath.humidity",
+                    "bindingProvider": "smarthome",
+                    "decimals": 1,
+                    "suffix": "%",
+                    "align": "left"
+                },
+                {
+                    "#COMMENT": "----===== Battery Info =====----", 
+                    "__external": "_snippets/canvas/battery-footer-item",
+                    "__externalArgs": {
+                        "target": "bath"
+                    } 
+                },
+                {
+                    "id": "room_bath.temp",
+                    "binding": "climate/bath.temperature",
+                    "bindingProvider": "smarthome",
+                    "decimals": 1,
+                    "suffix": "°",
+                    "align": "right"
+                }
+            ]
+        },
+        {
+            "#COMMENT": "----===== Button Group with Light Controls (Schlafzimmer) =====----", 
+            "type": "buttongroup",
+            "title": "Schlafzimmer",
+            "left": "12.5%",
+            "top": "68%",
+            "controls": [
+                {
+                    "type": "switch",
+                    "id": "switch-schlafzimmer",
+                    "binding": "group/bedroom",
+                    "bindingProvider": "smarthome",
+                    "img": "img/icons/2.0/power.png",
+                    "style": {
+                        "content": "background-size: 70%;"
+                    },
+                    "action": {
+                        "adapter": "smarthome",
+                        "method": "trigger",
+                        "payload": {
+                            "deviceId": "group/bedroom"
+                        },
+                        "sound": "KEY1"
+                    }
+                },
+                {
+                    "type": "select",
+                    "img": "img/icons/2.0/relax.png",
+                    "style": {
+                        "content": "background-size: 65%;"
+                    },
+                    "action": {
+                        "adapter": "smarthome",
+                        "method": "scene",
+                        "payload": {
+                            "deviceId": "group/bedroom",
+                            "sceneId": 10
+                        },
+                        "sound": "SCENE"
+                    }
+                },
+                {
+                    "type": "select",
+                    "img": "img/icons/2.0/bright.png",
+                    "style": {
+                        "content": "background-size: 50%;"
+                    },
+                    "action": {
+                        "adapter": "smarthome",
+                        "method": "scene",
+                        "payload": {
+                            "deviceId": "group/bedroom",
+                            "sceneId": 11
+                        },
+                        "sound": "SCENE"
+                    }
+                }
+            ],
+            "footer": 
+            [
+                {
+                    "id": "room_bedroom.humidity",
+                    "binding": "climate/bedroom.humidity",
+                    "bindingProvider": "smarthome",
+                    "decimals": 1,
+                    "suffix": "%",
+                    "align": "left"
+                },
+                {
+                    "#COMMENT": "----===== Battery Info =====----", 
+                    "__external": "_snippets/canvas/battery-footer-item",
+                    "__externalArgs": {
+                        "target": "bedroom"
+                    } 
+                },
+                {
+                    "id": "group/bedroom.temp",
+                    "binding": "climate/bedroom.temperature",
+                    "bindingProvider": "smarthome",
+                    "decimals": 1,
+                    "suffix": "°",
+                    "align": "right"
+                }
+            ]
+        },
+        {
+            "type": "buttongroup",
+            "title": "Bett Ian",
+            "hideTitle": true,
+            "style": {
+                "left": "3%",
+                "bottom": "2.5%",
+                "group": "border: 0px;"
+            },
+            "controls": [
+                {
+                    "id": "switch-nachttisch-ian",
+                    "binding": "light/bedroom_1",
+                    "bindingProvider": "smarthome",
+                    "type": "switch",
+                    "img": "img/icons/2.0/table-lamp.png",
+                    "style": {
+                        "content": "background-size: 50%;"
+                    },
+                    "action": {
+                        "adapter": "smarthome",
+                        "method": "trigger",
+                        "payload": {
+                            "deviceId": "light/bedroom_1"
+                        },
+                        "sound": "KEY1"
+                    }
+                }
+            ]
+        },
+        {
+            "type": "buttongroup",
+            "title": "Bett Susanne",
+            "hideTitle": true,
+            "style": {
+                "left": "39%",
+                "bottom": "2.5%",
+                "group": "border: 0px;"
+            },
+            "controls": [
+                {
+                    "id": "switch-nachttisch-susanne",
+                    "binding": "light/bedroom_2",
+                    "bindingProvider": "smarthome",
+                    "type": "switch",
+                    "img": "img/icons/2.0/table-lamp.png",
+                    "style": {
+                        "content": "background-size: 50%;"
+                    },
+                    "action": {
+                        "adapter": "smarthome",
+                        "method": "trigger",
+                        "payload": {
+                            "deviceId": "light/bedroom_2"
+                        },
+                        "sound": "KEY1"
+                    }
+                }
+            ]
+        },
+        {
+            "type": "buttongroup",  
+            "title": "Ventilator",
+            "hideTitle": true,
+            "style": {
+                "left": "21%",
+                "top": "54%",
+                "group": "border: 0px;"
+            },
+            "controls": [
+                {
+                    "id": "aircondition",
+                    "binding": "tuya.0.bfb48390b14a21780f7mpu.60",
+                    "bindingProvider": "iobroker",
+                    "type": "switch",
+                    "img": "img/icons/2.0/vent.png",
+                    "style": {
+                        "content": "background-size: 60%;"
+                    },
+                    "action": {
+                        "adapter": "iobroker",
+                        "method": "toggle",
+                        "payload": {
+                            "deviceId": "tuya.0.bfb48390b14a21780f7mpu.60"
+                        },
+                        "sound": "KEY1"
+                    }
+                }
+            ]
+        },
+        {
+            "#COMMENT": "----===== Button Group with Light Controls (Susannes Zimmer) =====----", 
+            "type": "buttongroup",
+            "title": "Susannes Zimmer",
+            "left": "58.5%",
+            "top": "57.5%",
+            "controls": [
+                {
+                    "type": "switch",
+                    "id": "switch-susanne",
+                    "img": "img/icons/2.0/power.png",
+                    "style": {
+                        "content": "background-size: 70%;"
+                    },
+                    "binding": "group/susanne",
+                    "bindingProvider": "smarthome",
+                    "action": {
+                        "adapter": "smarthome",
+                        "method": "trigger",
+                        "payload": {
+                            "deviceId": "group/susanne"
+                        },
+                        "sound": "KEY1"
+                    }
+                },
+                {
+                    "type": "select",
+                    "img": "img/icons/2.0/relax.png",
+                    "style": {
+                        "content": "background-size: 65%;"
+                    },
+                    "action": {
+                        "adapter": "smarthome",
+                        "method": "scene",
+                        "payload": {
+                            "deviceId": "group/susanne",
+                            "sceneId": 12
+                        },
+                        "sound": "SCENE"
+                    }
+                },
+                {
+                    "type": "select",
+                    "img": "img/icons/2.0/work.png",
+                    "style": {
+                        "content": "background-size: 50%;"
+                    },
+                    "action": {
+                        "adapter": "smarthome",
+                        "method": "scene",
+                        "payload": {
+                            "deviceId": "group/susanne",
+                            "sceneId": 10
+                        },
+                        "sound": "SCENE"
+                    }
+                },
+                {
+                    "type": "select",
+                    "img": "img/icons/2.0/bright.png",
+                    "style": {
+                        "content": "background-size: 50%;"
+                    },
+                    "action": {
+                        "adapter": "smarthome",
+                        "method": "scene",
+                        "payload": {
+                            "deviceId": "group/susanne",
+                            "sceneId": 11
+                        },
+                        "sound": "SCENE"
+                    }
+                }
+            ],
+            "footer": 
+            [
+                {
+                    "id": "room_susanne.humidity",
+                    "binding": "climate/susanne.humidity",
+                    "bindingProvider": "smarthome",
+                    "decimals": 1,
+                    "suffix": "%",
+                    "align": "left"
+                },
+                {
+                    "#COMMENT": "----===== Battery Info =====----", 
+                    "__external": "_snippets/canvas/battery-footer-item",
+                    "__externalArgs": {
+                        "target": "susanne"
+                    } 
+                },
+                {
+                    "id": "room_susanne.temp",
+                    "binding": "climate/susanne.temperature",
+                    "bindingProvider": "smarthome",
+                    "decimals": 1,
+                    "suffix": "°",
+                    "align": "right"
+                }
+            ]
+        },
+        {
+            "type": "buttongroup",
+            "title": "Tischlampe",
+            "hideTitle": true,
+            "style": {
+                "left": "51%",
+                "bottom": "2.5%",
+                "group": "border: 0px;"
+            },
+            "controls": [
+                {
+                    "id": "switch-tisch-floor0",
+                    "binding": "light/susanne_table",
+                    "bindingProvider": "smarthome",
+                    "type": "switch",
+                    "img": "img/icons/2.0/table-lamp.png",
+                    "style": {
+                        "content": "background-size: 50%;"
+                    },
+                    "action": {
+                        "adapter": "smarthome",
+                        "method": "trigger",
+                        "payload": {
+                            "deviceId": "light/susanne_table"
+                        },
+                        "sound": "KEY1"
+                    }
+                }
+            ]
+        },
+        {
+            "type": "buttongroup",  
+            "title": "Stehlampe",
+            "hideTitle": true,
+            "style": {
+                "left": "70%",
+                "bottom": "2.5%",
+                "group": "border: 0px;"
+            },
+            "controls": [
+                {
+                    "id": "switch-stehlampe-susanne",
+                    "binding": "light/susanne_stand",
+                    "bindingProvider": "smarthome",
+                    "type": "switch",
+                    "img": "img/icons/2.0/lamp.png",
+                    "style": {
+                        "content": "background-size: 55%;"
+                    },
+                    "action": {
+                        "adapter": "smarthome",
+                        "method": "trigger",
+                        "payload": {
+                            "deviceId": "light/susanne_stand"
+                        },
+                        "sound": "KEY1"
+                    }
+                }
+            ]
+        },
+        {
+            "#COMMENT": "----===== Button Group with Light Controls (Flur) =====----", 
+            "type": "buttongroup",
+            "title": "Flur",
+            "hideTitle": true,
+            "smallFooter": true,
+            "style": { 
+                "group": "border: 0px;"
+            },
+            "left": "34%",
+            "top": "32.9%",
+            "controls": [
+                {
+                    "type": "switch",
+                    "id": "switch-flur-floor1",
+                    "binding": "group/hallway_1",
+                    "bindingProvider": "smarthome",
+                    "img": "img/icons/2.0/power.png",
+                    "style": {
+                        "content": "background-size: 70%;"
+                    },
+                    "action": {
+                        "adapter": "smarthome",
+                        "method": "trigger",
+                        "payload": {
+                            "deviceId": "group/hallway_1",
+                            "sceneId": 0
+                        },
+                        "sound": "KEY1"
+                    }
+                },
+                {
+                   "id": "switch-flur-motion-floor1",
+                    "binding": "motion/hallway_1.enabled",
+                    "bindingProvider": "smarthome",
+                    "type": "switch",
+                    "trueColor": "green",
+                    "img": "img/icons/2.0/sensor.png",
+                    "action": {
+                        "adapter": "smarthome",
+                        "method": "trigger",
+                        "payload": {
+                            "deviceId": "motion/hallway_1"
+                        },
+                        "sound": "SCENE"
+                    }
+                }
+            ],
+            "footer": 
+            [
+                {
+                    "id": "hallway_1.occupancy",
+                    "type": "text",
+                    "binding": "motion/hallway_1.occupancy|$true=◆;false=◇",
+                    "bindingProvider": "smarthome",
+                    "align": "left"
+                },
+                {
+                    "id": "hallway_1.temp",
+                    "binding": "motion/hallway_1.temperature",
+                    "bindingProvider": "smarthome",
+                    "decimals": 1,
+                    "offset": 1.5,
+                    "suffix": "°",
+                    "align": "right"
+                }
+            ]
+        }
+    ]
+}

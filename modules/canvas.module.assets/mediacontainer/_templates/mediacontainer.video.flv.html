@@ -1,0 +1,19 @@
+<style>
+    .video-frame {
+        /* Set media player styles */
+    }
+</style>
+<video id="{{[id]}}" class="flvplayer-app video-frame" poster="" {{[src]}} {{[autoplay]}} {{[IF:autoplay:muted]}} style="display: none; {{[style]}}"></video>
+<script>
+
+    var videoElement = document.getElementById('{{[id]}}');
+
+    if (document.getElementById('{{[id]}}').hasAttribute('src') && document.getElementById('{{[id]}}').getAttribute('src') != '') {
+        
+        // AUTOPLAY
+        if (document.getElementById('{{[id]}}').hasAttribute('autoplay') && document.getElementById('{{[id]}}').getAttribute('autoplay') == true) {
+            loadMediaPlayerSource('{{[id]}}', document.getElementById('{{[id]}}').getAttribute('src'), true);
+        }
+    }
+
+</script>

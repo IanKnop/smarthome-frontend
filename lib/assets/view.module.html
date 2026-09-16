@@ -1,0 +1,24 @@
+<!-- module '{{[id]}}' -->
+<module id="view-module-{{[id]}}" class="border-module {{[class]}}" style="{{[style]}}" {{[conditions]}}>
+    <style>
+        @media (orientation: landscape) {
+            #view-module-{{[id]}} {
+                {{[grid-values]}}
+            }
+        }
+        @media (orientation: portrait) {
+            #view-module-{{[id]}} {
+                border-left: var(--border-width) solid var(--border-color);
+                border-right: var(--border-width) solid var(--border-color);
+                border-top: var(--border-top-width) solid var(--border-color);
+                border-bottom: var(--border-width) solid var(--border-color);
+                border-radius: 0;
+
+                {{[mobile-grid-values]}}
+            }
+        }
+    </style>
+    {{[IF:has-header:<div id="module-header-{[id]}" class="module-header">{[header]}</div>]}}    
+    {{[content]}}
+</module>
+    

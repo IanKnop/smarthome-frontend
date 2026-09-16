@@ -1,0 +1,18 @@
+<!-- window module '{{[id]}}' -->
+<module id="window-module-{{[id]}}" class="border-module {{[class]}}" style="background: var(--module-gradient-opaque-r); {{[style]}}" {{[conditions]}}>
+    <style>
+        @media (orientation: landscape) {
+            #window-module-{{[id]}} {
+                {{[grid-values]}}
+            }
+        }
+        @media (orientation: portrait) {
+            #window-module-{{[id]}} {
+                {{[grid-values]}}
+            }
+        }
+    </style>
+    {{[IF:has-header:<div id="module-header-{[id]}" class="module-header">{[header]}</div>]}}    
+    {{[content]}}
+</module>
+    

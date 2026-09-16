@@ -1,0 +1,80 @@
+/* =========================================================
+    EXTERNAL: iCALENDAR
+   ========================================================= */
+
+   .icalNormal {
+    display: inline-block;
+    color: var(--main-color-light)!important;
+    font-size: 3vmin;
+    font-weight: 200;
+    width: 18vmin;
+}
+
+.icalNormal2 {
+    display: inline-block;
+    position: absolute;
+    color: var(--white)!important;
+    font-size: 3vmin;
+    font-weight: 600;
+    
+    overflow: hidden;
+    height: 4vmin;
+}
+
+.icalPrePreWarn {
+    display: inline-block;
+    color: var(--yellow)!important;
+    font-size: 3vmin;
+    font-weight: 200;
+    width: 18vmin;
+}
+
+.icalPrePreWarn2 {
+    display: inline-block;
+    position: absolute;
+    color: var(--yellow)!important;
+    font-size: 3vmin;
+    font-weight: 600;
+
+    overflow: hidden;
+    height: 4vmin;
+}
+
+.icalPreWarn {
+    display: inline-block;
+    color: var(--orange)!important;
+    font-size: 3vmin;
+    font-weight: 200;
+    width: 18vmin;
+}
+
+.icalPreWarn2 {
+    display: inline-block;
+    position: absolute;
+    color: var(--orange)!important;
+    font-size: 3vmin;
+    font-weight: 600;
+
+    overflow: hidden;
+    height: 4vmin;
+}
+
+
+.icalWarn {
+    display: inline-block;
+    color: var(--red)!important;
+    font-size: 3vmin;
+    font-weight: 600;
+    width: 18vmin;
+}
+
+.icalWarn2 {
+    display: inline-block;
+    position: absolute;
+    color: var(--red)!important;
+    font-size: 3vmin;
+    font-weight: 600;
+    
+    overflow: hidden;
+    height: 5vmin;
+}

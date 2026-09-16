@@ -1,0 +1,158 @@
+/* =========================================================
+    Global 
+   ========================================================= */
+
+:root {
+    
+    /* Header */
+    --element-header-back-color:            var(--module-header-color);
+    --element-header-font-color:            var(--module-header-font-color);
+    --element-header-font-size:             2.25vmin;
+    --header-font-size:                     2.00vmin;
+    --header-font-size-vertical:            1.75vmin;
+    --header-line-height:                   2.75vmin;
+    --header-line-height-vertical:          2vmin;
+
+    /* Values */
+    --label-color:                          var(--white);
+ 
+
+    /* Buttons */
+    --button-size:                          8vmin;
+    --button-size-vertical:                 5.5vmin;
+    --button-icon-size:                     60%;
+    --switch-button-gradient:               var(--standard-button-gradient);
+    --switch-button-active-gradient:        var(--standard-button-active-gradient);
+    --switch-button-active-green-gradient:  var(--standard-button-active-green-gradient);
+    --switch-button-active-red-gradient:    var(--standard-button-active-red-gradient);
+    --switch-button-active-blue-gradient:   var(--standard-button-active-blue-gradient);
+    --scene-button-gradient:                var(--mode-button-gradient);
+    --app-button-gradient:                  var(--function-button-gradient);
+
+    /* Footer */
+    --footer-back-color:                    var(--module-footer-gradient);
+    --footer-height:                        3.5vmin;
+    --footer-height-vertical:               2.25vmin;
+    --footer-height-small:                  2.75vmin;
+    --footer-height-small-vertical:         2vmin;
+    --footer-value-size:                    2.25vmin;
+    --footer-value-size-vertical:           1.5vmin;
+    --footer-small-value-size:              1.75vmin;
+    --footer-small-value-size-vertical:     1.25vmin;
+}
+
+/* =========================================================
+    Module Canvas 
+   ========================================================= */
+
+module-canvas {
+
+    display: contents;
+    height: 100%;
+    width: 100%;
+
+}
+
+/* =========================================================
+    CANVAS ELEMENTS
+   ========================================================= */
+
+.canvas-label {
+
+    display: inline-block;
+    position: relative;
+
+    color: var(--label-color);
+    text-transform: uppercase;
+    font-weight: 600;
+
+}
+
+.canvas-value {
+
+    display: inline-block;
+    position: relative;
+    color: var(--main-color-light);
+    font-weight: 200;
+    
+}
+
+.canvas-control {
+    display: inline-block;
+    z-index: 185;
+
+    border-left: var(--border-width) solid var(--border-color); 
+    border-top: var(--border-width) solid var(--border-color); 
+    cursor: pointer;
+    z-index: 150;
+}
+
+.canvas-table {
+
+    width: 100%;
+    height: 95%;
+
+}
+
+.canvas-image {
+
+    position: relative;
+    display: block;
+
+    max-width: 100%;
+    max-height: 100%;
+
+    margin: auto;
+}
+
+
+/* =========================================================
+    CANVAS IMAGES ASPECT RATIO 
+   ========================================================= */
+
+.ratio-outside-canvas {
+
+    position: relative;
+    height: min-content;
+    max-height: 100%;
+}
+
+.ratio-inside-canvas {
+
+    position: relative;
+}
+
+.ratio {
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.ratio.vertical, .ratio.vertical > canvas {
+    height: 99%;
+    max-width: 99%;
+}
+
+.ratio.horizontal, .ratio.horizontal > canvas {
+    width: 99%;
+    max-height: 100%;
+    
+}
+
+.ratio > div {
+    position: absolute;
+    top: 1%;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+.input-box {
+    border:                 1px inset #7a5a7f;
+    border-radius:          5px;
+    background:             #0000002e;
+    padding:                5px;
+    padding-right:          15px !important;
+    margin-top:             2px;
+    text-indent:            10px;
+}

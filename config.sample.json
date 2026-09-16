@@ -1,0 +1,31 @@
+{
+    "header": "SMART HOME <span style=\"font-weight: 200;\">CONTROL CENTER</span>",
+    "theme": "lcars",
+    "viewWidth": "1024px",
+    "viewHeight": "768px",
+    "viewGridColumns": "25",
+    "viewGridRows": "20",
+    "headerStart": "1;1",
+    "headerEnd": "3;25",
+    "startView": "lights",
+    "mobileStartView": "lights",
+    "lockModules": [
+        {
+            "id": "lock-quick",
+            "class": "lock-module",
+            "start": "16;2",
+            "end": "19;24",
+            "module": "canvas.module",
+            "moduleProperties": {
+                "__external": "_lockscreen/lock-buttons-floor-0"
+            }
+        }
+    ],
+    "views": [
+        {
+            "id": "lights",
+            "img": "img/main_lights.svg",
+            "__external": "_views/lights.sample"
+        }
+    ]
+}

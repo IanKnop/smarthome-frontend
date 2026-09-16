@@ -1,0 +1,28 @@
+{
+    "img": "img/floorplans/cc-plan-1.svg",
+    "canvasElements": [
+        {
+            "type": "buttongroup",
+            "title": "Bedroom",
+            "left": "58.5%",
+            "top": "57.5%",
+            "controls": [
+                {
+                    "type": "switch",
+                    "id": "switch-bedroom",
+                    "binding": "group/bedroom",
+                    "bindingProvider": "smarthome",
+                    "img": "img/icons/2.0/power.png",
+                    "action": {
+                        "adapter": "smarthome",
+                        "method": "trigger",
+                        "payload": {
+                            "deviceId": "group/bedroom"
+                        },
+                        "sound": "KEY1"
+                    }
+                }
+            ]
+        }
+    ]
+}

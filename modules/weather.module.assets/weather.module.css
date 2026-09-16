@@ -1,0 +1,75 @@
+.cc-weather-text {
+    
+    display:        block;
+    position:       absolute;
+    top:            4.5vh;
+    left:           5%;
+    font-size:      3vmin;
+    font-family:    var(--standard-font);
+    font-weight:    600;
+    color:         rgb(255, 255, 255);
+
+}
+
+.cc-weather-icon {
+
+    display:        flex;
+    position:       absolute;
+
+    left:           2.5%;
+    bottom:         10px;
+    width:          40%;
+
+    text-align:     center;
+    align-items:    center;
+}
+
+.cc-weather-icon-image {
+
+    width:          -webkit-fill-available;
+
+}
+
+.cc-weather-temp {
+    
+    display:        block;
+    position:       absolute;
+    bottom:         10px;
+    right:          5vh;
+    font-size:      15vh;
+    line-height:    15vh;
+    font-family:    "Google Sans";
+    font-weight:    200;
+    text-align:     right;
+    color:          #fff;
+
+}
+
+.cc-weather-max-temp {
+    
+    display:        block;
+    position:       absolute;
+    bottom:         calc(15vh + 5px);
+    right:          calc(5vh + 5px);
+    font-size:      3vmin;
+    font-weight:    200;
+    font-family:    var(--standard-font);
+    color:          var(--mainX-white-opaque);
+}
+
+.cc-weather-min-temp {
+    
+    display:        none;
+
+}
+
+.cc-weather-day {
+    
+    display:        none;
+
+}
+
+.cc-weather-wind {
+    
+    display:        none;
+}

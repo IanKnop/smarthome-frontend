@@ -1,0 +1,15 @@
+<!-- mobile view footer -->
+<module id="view-footer" class="page-footer border-top border-right border-left rounded-bottom module-top" style="{{[style]}}">
+    <style>
+        @media (orientation: landscape) {
+            #view-footer {
+                visibility: collapse;
+            }
+        }
+        @media (orientation: portrait) {
+            #view-footer {
+                {{[mobile-grid-values]}}
+            }
+        }
+    </style>
+</module> 

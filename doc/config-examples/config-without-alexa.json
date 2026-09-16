@@ -1,0 +1,99 @@
+{   
+    "header": "<strong>SMART HOME</strong> CONTROL CENTER",
+    "theme": "lcars",
+    "viewWidth": "1024px",
+    "viewHeight": "768px",
+    "viewGridColumns": "25",
+    "viewGridRows": "20",
+    "headerStart": "1;1",
+    "headerEnd": "3;25",
+    "startView": "home",
+    "mobileStartView": "lights",
+    "lockModules": 
+    [
+        {
+            "id": "lock-cal",
+            "class": "lock-module",
+            "style": "opacity: 0.85;",
+            "start": "1;2",
+            "end": "6;14",
+            "module": "canvas.module",
+            "moduleProperties": {
+                "__external": "_lockscreen/lock-calendar"
+            }
+        },
+        {
+            "id": "lock-weather",
+            "class": "lock-module",
+            "style": {
+                "style": "opacity: 0.85;",
+                "icon": "zoom: 0.75;",
+                "temp": "zoom: 0.75;"
+            },
+            "start": "8;16",
+            "end": "16;24",
+            "module": "weather.module",
+            "moduleProperties": {
+                "bindingProvider": "iobroker",
+                "maxTempBinding": "daswetter.0.NextDays.Location_1.Day_1.Maximale_Temperatur_value",
+                "minTempBinding": "daswetter.0.NextDays.Location_1.Day_1.Minimale_Temperatur_value",
+                "currentDayBinding": "daswetter.0.NextDays.Location_1.Day_1.Tag_value",
+                "weatherBinding": "daswetter.0.NextDays.Location_1.Day_1.Wetter_Symbol_value",
+                "iconUrlBinding": "daswetter.0.NextDays.Location_1.Day_1.iconURL",
+                "iconUrlPrefix": "http://192.168.178.125:8081",
+                "windBinding": "daswetter.0.NextDays.Location_1.Day_1.Wind_value"
+            },
+            "showWeatherTitle": false
+        },
+        {
+            "id": "lock-quick",
+            "class": "lock-module",
+            "start": "16;2",
+            "end": "19;24",
+            "style": "opacity: 0.75; z-index: 10100;",
+            "module": "canvas.module",
+            "moduleProperties": {
+                "__external": "_lockscreen/lock-buttons-floor-0"    
+            }
+        }
+    ],
+    "views": 
+    [
+        {
+            "id": "home",
+            "img": null,
+            "__external": "_views/main"
+        },
+        {
+            "id": "lights",
+            "img": "img/main_lights.svg",
+            "__external": "_views/lights"
+
+        },
+        {
+            "id": "climate",
+            "img": "img/main_climate.svg",
+            "__external": "_views/climate"
+        },
+        {
+            "id": "garden",
+            "img": "img/main_garden.png",
+            "__external": "_views/garden"
+        },
+        {
+            "id": "car",
+            "img": "img/main_car.svg",
+            "__external": "_views/cars"
+        },
+        {
+            "id": "cam",
+            "img": "img/main_cam.svg",
+            "__external": "_views/surveillance"
+        },
+        {
+            "id": "schedule",
+            "img": "img/main_calendar.svg",
+            "__external": "_views/schedule"
+        }
+    ]
+}

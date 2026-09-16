@@ -1,0 +1,28 @@
+# Local credentials and deployment configuration
+.github_token
+config.json
+config-ian.json
+config/iobroker.json
+
+# Private application configuration
+/config/*
+!/config/iobroker.sample.json
+!/config/_views/
+/config/_views/*
+!/config/_views/lights.sample.json
+/config/lights/
+!/config/lights/
+!/config/lights/floor-0.sample.json
+!/config/lights/floor-1.sample.json
+!/config/lights/floor-2.sample.json
+
+# Runtime and local-only files
+/debug/
+*.bak
+*.old
+*.tmp
+*backup*
+
+# Local tooling and OS files
+.DS_Store
+.vscode/

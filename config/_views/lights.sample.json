@@ -1,0 +1,46 @@
+{
+    "variants": [ "floor-0", "floor-1", "floor-2" ],
+    "header": "Lights",
+    "modules": [
+        {
+            "id": "floorplan",
+            "header": {
+                "floor-0": "Ground floor",
+                "floor-1": "First floor",
+                "floor-2": "Attic"
+            },
+            "class": "border-right border-left border-bottom rounded-bottom-right",
+            "style": {
+                "start": "4;1",
+                "end": "20;25",
+                "mobileHeight": 8
+            },
+            "module": "canvas.module",
+            "moduleProperties": {
+                "hasVariants": true,
+                "floor-0": {
+                    "__external": "lights/floor-0.sample"
+                },
+                "floor-1": {
+                    "__external": "lights/floor-1.sample"
+                },
+                "floor-2": {
+                    "__external": "lights/floor-2.sample"
+                }
+            }
+        },
+        {
+            "id": "floorselect",
+            "header": "",
+            "class": "border-left border-bottom rounded-bottom-left",
+            "style": {
+                "start": "13;1",
+                "end": "20;6"
+            },
+            "module": "canvas.module",
+            "moduleProperties": {
+                "__external": "general/floorselect"
+            }
+        }
+    ]
+}

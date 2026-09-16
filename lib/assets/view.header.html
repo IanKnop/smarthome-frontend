@@ -1,0 +1,17 @@
+<module id="view-header" class="page-header border-top border-right border-left rounded-top module-top" style="{{[style]}}">
+    <style>
+        @media (orientation: landscape) {
+            #view-header {
+                {{[grid-values]}}
+            }
+        }
+        @media (orientation: portrait) {
+            #view-header {
+                {{[mobile-grid-values]}}
+            }
+        }
+    </style>
+    <div id="view-header-title" class="view-title" onclick="SmartHomeUI.showView('home');" style="cursor: pointer;">{{[title]}}</div>
+    <div id="view-header-subtitle" class="view-title view-subtitle">{{[subtitle]}}</div>
+    <div id="view-header-button-bar" class="view-button-bar">{{[buttons]}}</div>
+</module> 

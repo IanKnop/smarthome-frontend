@@ -1,0 +1,70 @@
+/* =========================================================
+    CUSTOM CONTROLS
+   ========================================================= */
+.windowClosed {
+    width: 1vmin; 
+    height: 30%; 
+    border: 0.5vmin solid var(--apprx-module-background); 
+    border-radius: 50px;
+    background: var(--green);
+
+}
+
+.windowOpen {
+    width: 1vmin; 
+    height: 30%; 
+    border: 0.5vmin solid var(--apprx-module-background); 
+    border-radius: 50px;
+    background: var(--red);
+    
+}
+
+/* Bring List Modification */
+.bring-list {
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    line-height: 4.5vmin;
+    font-size: 2.75vmin!important;
+    margin: 0!important;
+    margin-block-start: 0;
+    margin-block-end: 0;
+    padding-inline-start: 0;
+    
+}
+
+.bring-list-item {
+    display:        flex;
+    width:          calc(33% - 24px);
+    height:         11vh;
+    border-radius:  5px;
+    border-top:     1px solid #ffffff1f;
+    margin-bottom:  8px;
+    margin-right:   7px;
+    text-align:     center;
+    text-wrap-style: balance;
+    font-size:      2.75vmin;
+    font-weight:    400;
+    line-height:    3vmin;
+    padding:        0.7vw;
+    background:     #6b5c7e4a;
+    justify-content: space-evenly;
+}
+
+.bring-list-x {
+
+    width:          2vmin;
+    position:       absolute;
+    align-self:     end;
+    align-content:  revert;
+    margin-bottom:  1vmin;
+    opacity:        0.5;
+
+}
+
+.bring-list-text {
+    margin-top:     5px;
+
+}
+

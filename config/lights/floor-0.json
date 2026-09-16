@@ -1,0 +1,596 @@
+{
+    "img": "img/floorplans/cc-plan-0.svg",
+    "canvasElements": [
+        {
+            "#COMMENT": "----===== Window Status Indication Image (Terassentür) =====----", 
+            "type": "image",
+            "class": "windowClosed",
+            "style":
+            {
+                "right": "-0.5vmin",
+                "top": "60%"
+            },
+            "conditions": [
+                {
+                    "binding": "window/terrace.status",
+                    "bindingProvider": "smarthome",
+                    "value": true,
+                    "class": "windowOpen"
+                },
+                {
+                    "binding": "window/terrace.status",
+                    "bindingProvider": "smarthome",
+                    "value": false,
+                    "class": "windowClosed"
+                }
+            ]
+        },
+        {
+            "#COMMENT": "----===== Window Status Indication Image (Küchenfenster) =====----", 
+            "type": "image",
+            "class": "windowClosed",
+            "style":
+            {
+                "left": "-0.5vmin",
+                "top": "60%"
+            },
+            "conditions": [
+                {
+                    "binding": "window/kitchen.status",
+                    "bindingProvider": "smarthome",
+                    "value": true,
+                    "class": "windowOpen"
+                },
+                {
+                    "binding": "window/kitchen.status",
+                    "bindingProvider": "smarthome",
+                    "value": false,
+                    "class": "windowClosed"
+                }
+            ]
+        },
+        {
+            "#COMMENT": "----===== Door Status Indication Image (Eingangstür) =====----", 
+            "type": "image",
+            "class": "windowClosed",
+            "style":
+            {
+                "left": "-0.5vmin",
+                "top": "33.5%",
+                "height": "13%"
+            },
+            "conditions": [
+                {
+                    "binding": "window/entrance.status",
+                    "bindingProvider": "smarthome",
+                    "value": true,
+                    "class": "windowOpen"
+                },
+                {
+                    "binding": "window/entrance.status",
+                    "bindingProvider": "smarthome",
+                    "value": false,
+                    "class": "windowClosed"
+                }
+            ]
+        },
+        {
+            "#COMMENT": "----===== Button Group with Light Controls (Wohnzimmer) =====----", 
+            "type": "buttongroup",
+            "title": "Wohnzimmer",
+            "left": "60%",   
+            "top": "40%",
+            "controls": [
+                {
+                    "type": "switch",
+                    "id": "switch-wohnzimmer",
+                    "binding": "group/living",
+                    "bindingProvider": "smarthome",
+                    "img": "img/icons/2.0/power.png",
+                    "style": {
+                        "content": "background-size: 70%;"
+                    },
+                    "action": {
+                        "adapter": "smarthome",
+                        "method": "trigger",
+                        "payload": {
+                            "deviceId": "group/living"
+                        },
+                        "sound": "KEY1"
+                    }
+                },
+                {
+                    "type": "select",
+                    "img": "img/icons/2.0/relax.png",
+                    "style": {
+                        "content": "background-size: 65%;"
+                    },
+                    "action": {
+                        "adapter": "smarthome",
+                        "method": "scene",
+                        "payload": {
+                            "deviceId": "group/living",
+                            "sceneId": 10
+                        },
+                        "sound": "SCENE"
+                    }
+                },
+                {
+                    "type": "select",
+                    "img": "img/icons/2.0/movie.png",
+                    "style": {
+                        "content": "background-size: 50%;"
+                    },                    
+                    "action": {
+                        "adapter": "smarthome",
+                        "method": "scene",
+                        "payload": {
+                            "deviceId": "group/living",
+                            "sceneId": 12
+                        },
+                        "sound": "SCENE"
+                    }
+                },
+                {
+                    "type": "select",
+                    "img": "img/icons/2.0/bright.png",
+                    "style": {
+                        "content": "background-size: 50%;"
+                    },                
+                    "action": {
+                        "adapter": "smarthome",
+                        "method": "scene",
+                        "payload": {
+                            "deviceId": "group/living",
+                            "sceneId": 11
+                        },
+                        "sound": "SCENE"
+                    }
+                }
+            ],
+            "footer": 
+            [
+                {
+                    "id": "room_living.humidity",
+                    "binding": "climate/living.humidity",
+                    "bindingProvider": "smarthome",
+                    "decimals": 1,
+                    "suffix": "%",
+                    "align": "left"
+                },
+                {
+                    "#COMMENT": "----===== Battery Info =====----", 
+                    "__external": "_snippets/canvas/battery-footer-item",
+                    "__externalArgs": {
+                        "target": "living"
+                    } 
+                },
+                {
+                    "id": "room_living.temp",
+                    "binding": "climate/living.temperature",
+                    "bindingProvider": "smarthome",
+                    "decimals": 1,
+                    "suffix": "°",
+                    "align": "right"
+                }
+            ]
+        },
+        {
+            "#COMMENT": "----===== Button Group with Power Info =====----", 
+            "type": "buttongroup",
+            "title": "Strom",
+            "smallFooter": true,
+            "style": {
+                "left": "25%",
+                "top": "5%",
+                "content": {
+                    "style": "font-size: 10em;"
+
+                }
+            },
+            "controls": [
+                {
+                    "id": "powerHeating",
+                    "type": "navigate",
+                    "style": {
+                        "img": "img/icons/switch_house_heating_power.png",
+                        "content": "background-size: 55%;"
+                    },
+                    "view": {
+                        "__external": "_windows/powerlog",
+                        "__externalArgs": { 
+                            "deviceId": "power/heating",
+                            "variant": "day",
+                            "windowId": "powerHeating",
+                            "titleExt": "Wärmepumpenstrom"
+                        },
+                        "target": "window"
+                    }
+                },
+                {
+                    "id": "powerHome",
+                    "type": "navigate",
+                    "style": {
+                        "img": "img/icons/switch_house_power2.png",
+                        "content": "background-size: 55%;"
+                    },
+                    "view": {
+                        "__external": "_windows/powerlog",
+                        "__externalArgs": { 
+                            "deviceId": "power/home",
+                            "variant": "day",
+                            "windowId": "powerHome",
+                            "titleExt": "Haushaltsstrom"
+                        },
+                        "target": "window"
+                    }
+                }
+            ],
+            "footer": 
+            [
+                {
+                    "id": "powerHeating.value",
+                    "binding": "power/heating",
+                    "bindingProvider": "smarthome",
+                    "decimals": 0,
+                    "suffix": "",
+                    "align": "left"
+                },
+                {
+                    "id": "powerHome.value",
+                    "binding": "power/home",
+                    "bindingProvider": "smarthome",
+                    "decimals": 0,
+                    "suffix": "",
+                    "align": "right"
+                }
+            ]
+        },
+        {
+            "#COMMENT": "----===== Button Group with Light Controls (Esszimmer) =====----", 
+            "type": "buttongroup",
+            "title": "Esszimmer",
+            "left": "35%",
+            "top": "75%",
+            "controls": [
+                {
+                    "id": "switch-esszimmer",
+                    "binding": "group/dining",
+                    "bindingProvider": "smarthome",
+                    "type": "switch",
+                    "img": "img/icons/2.0/power.png",
+                    "style": {
+                        "content": "background-size: 70%;"
+                    },
+                    "action": {
+                        "adapter": "smarthome",
+                        "method": "trigger",
+                        "payload": {
+                            "deviceId": "group/dining"
+                        },
+                        "sound": "KEY1"
+                    }
+                },
+                {
+                    "type": "select",
+                    "img": "img/icons/2.0/restaurant.png",
+                    "style": {
+                        "content": "background-size: 45%;"
+                    },
+                    "action": {
+                        "adapter": "smarthome",
+                        "method": "scene",
+                        "payload": {
+                            "deviceId": "group/dining",
+                            "sceneId": 10
+                        },
+                        "sound": "SCENE"
+                    }
+                },
+                {
+                    "type": "select",
+                    "img": "img/icons/2.0/bright.png",
+                    "style": {
+                        "content": "background-size: 50%;"
+                    },
+                    "action": {
+                        "adapter": "smarthome",
+                        "method": "scene",
+                        "payload": {
+                            "deviceId": "group/dining",
+                            "sceneId": 11
+                        },
+                        "sound": "SCENE"
+                    }
+                }
+            ]
+        },
+        {
+            "#COMMENT": "----===== Button Group with Light Controls (Küche) =====----", 
+            "type": "buttongroup",
+            "title": "Küche",
+            "left": "3%",
+            "top": "62%",
+            "controls": [
+                {
+                    "id": "switch-kitchen",
+                    "binding": "group/kitchen",
+                    "bindingProvider": "smarthome",
+                    "type": "switch",
+                    "img": "img/icons/2.0/power.png",
+                    "style": {
+                        "content": "background-size: 70%;"
+                    },
+                    "action": {
+                        "adapter": "smarthome",
+                        "method": "trigger",
+                        "payload": {
+                            "deviceId": "group/kitchen",
+                            "sceneId": 10
+                        },
+                        "sound": "SCENE"
+                    }
+                },
+                {
+                    "type": "select",
+                    "img": "img/icons/2.0/chef-2.png",
+                    "style": {
+                        "content": "background-size: 55%;"
+                    },
+                    "action": {
+                        "adapter": "smarthome",
+                        "method": "scene",
+                        "payload": {
+                            "deviceId": "group/kitchen",
+                            "sceneId": 10
+                        },
+                        "sound": "SCENE"
+                    }
+                },
+                {
+                    "type": "select",
+                    "img": "img/icons/2.0/bright.png",
+                    "style": {
+                        "content": "background-size: 50%;"
+                    },
+                    "action": {
+                        "adapter": "smarthome",
+                        "method": "scene",
+                        "payload": {
+                            "deviceId": "group/kitchen",
+                            "sceneId": 11
+                        },
+                        "sound": "SCENE"
+                    }
+                }
+            ],
+            "footer": 
+            [
+                {
+                    "id": "room_kitchen.humidity",
+                    "binding": "climate/kitchen.humidity",
+                    "bindingProvider": "smarthome",
+                    "decimals": 1,
+                    "suffix": "%",
+                    "align": "left"
+                },
+                {
+                    "#COMMENT": "----===== Battery Info =====----", 
+                    "__external": "_snippets/canvas/battery-footer-item",
+                    "__externalArgs": {
+                        "target": "kitchen"
+                    } 
+                },
+                {
+                    "id": "room_kitchen.temp",
+                    "binding": "climate/kitchen.temperature",
+                    "bindingProvider": "smarthome",
+                    "decimals": 1,
+                    "suffix": "°",
+                    "align": "right"
+                }
+            ]
+        },
+        {
+            "#COMMENT": "----===== Button Group with Light Controls (Flur) =====----", 
+            "type": "buttongroup",
+            "title": "Flur EG",
+            "hideTitle": true,
+            "smallFooter": true,
+            "style": { 
+                "group": "border: 0px;"
+            },
+            "left": "14%",
+            "top": "35%",
+            "controls": [
+                {
+                    "id": "switch-flur-floor0",
+                    "binding": "group/hallway_0",
+                    "bindingProvider": "smarthome",
+                    "type": "switch",
+                    "img": "img/icons/2.0/power.png",
+                    "style": {
+                        "content": "background-size: 70%;"
+                    },
+                    "action": {
+                        "adapter": "smarthome",
+                        "method": "trigger",
+                        "payload": {
+                            "deviceId": "group/hallway_0",
+                            "sceneId": 10
+                        },
+                        "sound": "KEY1"
+                    }
+                },
+                {
+                    "id": "switch-flur-motion-floor0",
+                    "binding": "motion/hallway_0.enabled",
+                    "bindingProvider": "smarthome",
+                    "type": "switch",
+                    "trueColor": "green",
+                    "img": "img/icons/2.0/sensor.png",
+                    "action": {
+                        "adapter": "smarthome",
+                        "method": "trigger",
+                        "payload": {
+                            "deviceId": "motion/hallway_0"
+                        },
+                        "sound": "SCENE"
+                    }
+                }
+            ]
+        },
+        {
+            "#COMMENT": "----===== Button Group with Light Controls (Toilette) =====----", 
+            "type": "buttongroup",
+            "title": "Gäste-WC",
+            "left": "2%",
+            "top": "5%",
+            "controls": [
+                {
+                    "id": "switch-wc",
+                    "binding": "group/toilette",
+                    "bindingProvider": "smarthome",
+                    "type": "switch",
+                    "img": "img/icons/2.0/power.png",
+                    "style": {
+                        "content": "background-size: 70%;"
+                    },
+                    "action": {
+                        "adapter": "smarthome",
+                        "method": "trigger",
+                        "payload": {
+                            "deviceId": "group/toilette"
+                        },
+                        "sound": "KEY1"
+                    }
+                },
+                {
+                    "type": "select",
+                    "img": "img/icons/2.0/bright.png",
+                    "style": {
+                        "content": "background-size: 50%;"
+                    },
+                    "action": {
+                        "adapter": "smarthome",
+                        "method": "scene",
+                        "payload": {
+                            "deviceId": "group/toilette"
+                        },
+                        "sound": "SCENE"
+                    }
+                }
+            ],
+            "footer": 
+            [
+                {
+                    "id": "room_toilette.humidity",
+                    "binding": "climate/toilette.humidity",
+                    "bindingProvider": "smarthome",
+                    "decimals": 1,
+                    "suffix": "%",
+                    "align": "left"
+                },
+                {
+                    "#COMMENT": "----===== Battery Info =====----", 
+                    "__external": "_snippets/canvas/battery-footer-item",
+                    "__externalArgs": {
+                        "target": "toilette"
+                    } 
+                },
+                {
+                    "id": "room_toilette.temp",
+                    "binding": "climate/toilette.temperature",
+                    "bindingProvider": "smarthome",
+                    "decimals": 1,
+                    "suffix": "°",
+                    "align": "right"
+                }
+            ]
+        },
+        {
+            "type": "buttongroup",
+            "title": "Lichterkette",
+            "hideTitle": true,
+            "style": {
+                "left": "53%",
+                "top": "10%",
+                "group": "border: 0px;"
+            },
+            "controls": [
+                {
+                    "id": "switch-light-chain",
+                    "binding": "plug/Lichterkette",
+                    "bindingProvider": "smarthome",
+                    "type": "switch",
+                    "img": "img/icons/device_chain.svg",
+                    "style": {
+                        "content": "background-position-y: 65%"
+                    },
+                    "action": {
+                        "adapter": "smarthome",
+                        "method": "trigger",
+                        "payload": {
+                            "deviceId": "plug/Lichterkette"
+                        },
+                        "sound": "KEY1"
+                    }
+                }
+            ]
+        },
+        {
+            "type": "buttongroup",
+            "title": "Tischlampe",
+            "hideTitle": true,
+            "style": { 
+                "group": "border: 0px;"
+            },
+            "right": "2%",
+            "top": "2.5%",
+            "controls": [
+                {
+                    "id": "switch-tisch-floor0",
+                    "binding": "light/living_table",
+                    "bindingProvider": "smarthome",
+                    "type": "switch",
+                    "img": "img/icons/2.0/table-lamp.png",
+                    "action": {
+                        "adapter": "smarthome",
+                        "method": "toggle",
+                        "payload": {
+                            "deviceId": "light/living_table"
+                        },
+                        "sound": "KEY1"
+                    }
+                }
+            ]
+        },
+        {
+            "type": "buttongroup",  
+            "title": "Stehlampe",
+            "hideTitle": true,
+            "style": { 
+                "group": "border: 0px;"
+            },
+            "right": "2%",
+            "bottom": "3%",
+            "controls": [
+                {
+                    "id": "switch-stehlampe-floor0",
+                    "binding": "light/living_stand",
+                    "bindingProvider": "smarthome",
+                    "type": "switch",
+                    "img": "img/icons/2.0/lamp.png",
+                    "action": {
+                        "adapter": "smarthome",
+                        "method": "trigger",
+                        "payload": {
+                            "deviceId": "light/living_stand"
+                        },
+                        "sound": "KEY1"
+                    }
+                }
+            ]
+        }
+    ]
+}

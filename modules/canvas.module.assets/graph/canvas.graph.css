@@ -1,0 +1,77 @@
+/* =========================================================
+    CANVAS ELEMENT: GRAPH
+   ========================================================= */
+
+  .graph-axis {
+    
+    fill: none;
+    stroke: var(--mainX-white-opaque);
+    stroke-width: 0.25vmin;
+
+  }
+
+  .graph-axis-caption {
+
+    font-size: 2vmin;
+    fill: #ffffff;
+  }
+
+  
+@media (orientation: portrait) {
+
+  .graph-axis {
+    
+    stroke-width: 0.25vmin;
+
+  }
+
+  .graph-axis-caption {
+
+    font-size: 1vmin;
+    
+  }
+  
+}
+
+.graph-value-line {
+
+  stroke: var(--mainA-light);
+  stroke-width: 0.1vmin;
+}
+
+.graph-line {
+  stroke: var(--subtitle);
+  fill: none;
+}
+
+.graph-value-dot {
+  fill: var(--subtitle);
+}
+
+.graph-background {
+  fill: #00000047;
+}
+
+.graph-title {
+  fill: #fff;
+  font-weight: 400;
+  font-size: 3vmin;
+  text-transform: uppercase;
+
+}
+
+@media (orientation: portrait) {
+
+  .graph-title {
+
+    font-size: 2vw;
+
+  }
+
+  .graph-line {
+    
+    stroke-width: 0.2vw!important;
+  
+  }
+  
+}

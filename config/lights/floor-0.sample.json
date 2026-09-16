@@ -1,0 +1,28 @@
+{
+    "img": "img/floorplans/cc-plan-0.svg",
+    "canvasElements": [
+        {
+            "type": "buttongroup",
+            "title": "Living room",
+            "left": "60%",
+            "top": "40%",
+            "controls": [
+                {
+                    "type": "switch",
+                    "id": "switch-living",
+                    "binding": "group/living",
+                    "bindingProvider": "smarthome",
+                    "img": "img/icons/2.0/power.png",
+                    "action": {
+                        "adapter": "smarthome",
+                        "method": "trigger",
+                        "payload": {
+                            "deviceId": "group/living"
+                        },
+                        "sound": "KEY1"
+                    }
+                }
+            ]
+        }
+    ]
+}

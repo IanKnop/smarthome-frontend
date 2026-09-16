@@ -1,0 +1,4 @@
+<element id="{{[id]}}-element" style="text-align: left; {{[style]}}" {{[conditions]}}>
+    {{[IF:has-title:<div id="{[id]}-title" class="canvas-label {[labelclass]}" style="width: {[labelwidth]}; {[labelstyle]}">{[title]}</div>]}}
+    <div id="{{[id]}}" class="canvas-value {{[valueclass]}}" cc-type="{{[type]}}" cc-update="{{[update]}}" {{[binding]}} {{[IF:editable:onclick="SmartHomeUI.Keyboard.show('{[bindingId]}');"]}} {{[provider]}} {{[decimals]}} {{[prefix]}} {{[suffix]}} {{[value]}} style="width: {{[valuewidth]}}; {{[valuestyle]}}">{{[formatvalue]}}</div>
+</element>

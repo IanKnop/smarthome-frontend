@@ -1,0 +1,354 @@
+{                            
+    "img": "img/floorplans/cc-plan-2.svg",
+    "canvasElements": [
+        {
+            "#COMMENT": "----===== Window Status Indication Image (Ians Zimmer) =====----", 
+            "type": "image",
+            "class": "windowClosed",
+            "style":
+            {
+                "right": "-0.3vmin",
+                "top": "10%"
+            },
+            "conditions": [
+                {
+                    "binding": "window/ian.status",
+                    "bindingProvider": "smarthome",
+                    "value": true,
+                    "class": "windowOpen"
+                },
+                {
+                    "binding": "window/ian.status",
+                    "bindingProvider": "smarthome",
+                    "value": false,
+                    "class": "windowClosed"
+                }
+            ]
+        },
+        {
+            "#COMMENT": "----===== Button Group with Light Controls (Pflanzenschrank) =====----", 
+            "type": "buttongroup",  
+            "title": "Pflanzenschrank",
+            "hideTitle": true,
+            "style": {
+                "group": "border: 0px;"
+            },
+            "right": "5%",
+            "top": "30%",
+            "controls": [
+                {
+                    "id": "plug-plantlamp",
+                    "binding": "plug/Pflanzenlampe",
+                    "bindingProvider": "smarthome",
+                    "type": "switch",
+                    "img": "img/icons/2.0/plantlight.png",
+                    "style": {
+                        "content": "background-size: 52.5%;"
+                    },
+                    "action": {
+                        "adapter": "smarthome",
+                        "method": "trigger",
+                        "payload": {
+                            "deviceId": "plug/Pflanzenlampe"
+                        },
+                        "sound": "KEY1"
+                    }
+                },
+                {
+                    "id": "plug-vent",
+                    "binding": "plug/Abluft",
+                    "bindingProvider": "smarthome",
+                    "type": "switch",
+                    "img": "img/icons/2.0/fan.png",
+                    "style": {
+                        "content": "background-size: 55%;"
+                    },
+                    "action": {
+                        "adapter": "smarthome",
+                        "method": "trigger",
+                        "payload": {
+                            "deviceId": "plug/Abluft"
+                        },
+                        "sound": "KEY1"
+                    }
+                }
+            ],
+            "footer": 
+            [
+                {
+                    "id": "plants.humidity",
+                    "binding": "climate/plants.humidity",
+                    "bindingProvider": "smarthome",
+                    "decimals": 1,
+                    "suffix": "%",
+                    "align": "left"
+                },
+                {
+                    "id": "plants.temp",
+                    "binding": "climate/plants.temperature",
+                    "bindingProvider": "smarthome",
+                    "decimals": 1,
+                    "suffix": "°",
+                    "align": "right"
+                }
+            ]
+        },
+        {
+            "#COMMENT": "----===== Window Status Indication Image (Abstellraum) =====----", 
+            "type": "image",
+            "class": "windowClosed",
+            "style":
+            {
+                "left": "-0.4vmin",
+                "top": "10%"
+            },
+            "conditions": [
+                {
+                    "binding": "window/storage.status",
+                    "bindingProvider": "smarthome",
+                    "value": true,
+                    "class": "windowOpen"
+                },
+                {
+                    "binding": "window/storage.status",
+                    "bindingProvider": "smarthome",
+                    "value": false,
+                    "class": "windowClosed"
+                }
+            ]
+        },
+        {
+            "#COMMENT": "----===== Button Group with Light Controls (Ians Zimmer) =====----", 
+            "type": "buttongroup",
+            "title": "Ians Zimmer",
+            "style": {
+                "left": "61.5%",
+                "top": "4%"
+            },
+            "controls": [
+                {
+                    "type": "switch",
+                    "id": "switch-ian",
+                    "img": "img/icons/2.0/power.png",
+                    "style": {
+                        "content": "background-size: 70%;"
+                    },
+                    "binding": "group/ian",
+                    "bindingProvider": "smarthome",
+                    "action": {
+                        "adapter": "smarthome",
+                        "method": "trigger",
+                        "payload": {
+                            "deviceId": "group/ian"
+                        },
+                        "sound": "KEY1"
+                    }
+                },
+                {
+                    "type": "select",
+                    "img": "img/icons/2.0/relax.png",
+                    "style": {
+                        "content": "background-size: 65%;"
+                    },
+                    "action": {
+                        "adapter": "smarthome",
+                        "method": "scene",
+                        "payload": {
+                            "sceneId": 12,
+                            "deviceId": "group/ian"
+                        },
+                        "sound": "SCENE"
+                    }
+                },
+                {
+                    "type": "select",
+                    "img": "img/icons/2.0/work.png",
+                    "style": {
+                        "content": "background-size: 50%;"
+                    },
+                    "action": {
+                        "adapter": "smarthome",
+                        "method": "scene",
+                        "payload": {
+                            "sceneId": 10,
+                            "deviceId": "group/ian"
+                        },
+                        "sound": "SCENE"
+                    }
+                },
+                {
+                    "type": "select",
+                    "img": "img/icons/2.0/bright.png",
+                    "style": {
+                        "content": "background-size: 50%;"
+                    },
+                    "action": {
+                        "adapter": "smarthome",
+                        "method": "scene",
+                        "payload": {
+                            "sceneId": 11,
+                            "deviceId": "group/ian"
+                        },
+                        "sound": "SCENE"
+                    }
+                }
+            ],
+            "footer": 
+            [
+                {
+                    "id": "room_ian.humidity",
+                    "binding": "climate/ian.humidity",
+                    "bindingProvider": "smarthome",
+                    "decimals": 1,
+                    "suffix": "%",
+                    "align": "left"
+                },
+                {
+                    "#COMMENT": "----===== Battery Info =====----", 
+                    "__external": "_snippets/canvas/battery-footer-item",
+                    "__externalArgs": {
+                        "target": "ian"
+                    } 
+                },
+                {
+                    "id": "room_ian.temp",
+                    "binding": "climate/ian.temperature",
+                    "bindingProvider": "smarthome",
+                    "decimals": 1,
+                    "suffix": "°",
+                    "align": "right"
+                }
+            ]
+        },
+        {
+            "#COMMENT": "----===== Button Group with Light Controls (Abstellraum) =====----", 
+            "title": "Lager",
+            "type": "buttongroup",
+            "style": {
+                "left": "6.5%",
+                "top": "15%"
+            },
+            "controls": [
+                {
+                    "id": "switch-storage",
+                    "binding": "group/storage",
+                    "bindingProvider": "smarthome",
+                    "type": "switch",
+                    "img": "img/icons/2.0/power.png",
+                    "style": {
+                        "content": "background-size: 70%;"
+                    },
+                    "action": {
+                        "adapter": "smarthome",
+                        "method": "trigger",
+                        "payload": {
+                            "deviceId": "group/storage"
+                        },
+                        "sound": "KEY1"
+                    }
+                },
+                {
+                    "type": "select",
+                    "img": "img/icons/2.0/bright.png",
+                    "style": {
+                        "content": "background-size: 50%;"
+                    },
+                    "action": ""
+                }
+            ],
+            "footer": 
+            [
+                {
+                    "id": "room_storage.humidity",
+                    "binding": "climate/storage.humidity",
+                    "bindingProvider": "smarthome",
+                    "decimals": 1,
+                    "suffix": "%",
+                    "align": "left"
+                },
+                {
+                    "#COMMENT": "----===== Battery Info =====----", 
+                    "__external": "_snippets/canvas/battery-footer-item",
+                    "__externalArgs": {
+                        "target": "storage"
+                    } 
+                },
+                {
+                    "id": "room_storage.temp",
+                    "binding": "climate/storage.temperature",
+                    "bindingProvider": "smarthome",
+                    "decimals": 1,
+                    "suffix": "°",
+                    "align": "right"
+                }
+            ]
+        },
+        {
+            "#COMMENT": "----===== Button Group with Light Controls (Flur) =====----", 
+            "title": "Flur",
+            "type": "buttongroup",
+            "hideTitle": true,
+            "smallFooter": true,
+            "style": {
+                "group": "border: 0px;",
+                "left": "34%",
+                "top": "32.5%"
+            },
+            "controls": [
+                {
+                    "id": "switch-flur-floor2",
+                    "binding": "group/hallway_2",
+                    "bindingProvider": "smarthome",
+                    "type": "switch",
+                    "img": "img/icons/2.0/power.png",
+                    "style": {
+                        "content": "background-size: 70%;"
+                    },
+                    "action": {
+                        "adapter": "smarthome",
+                        "method": "trigger",
+                        "payload": {
+                            "deviceId": "group/hallway_2"
+                        },
+                        "sound": "KEY1"
+                    }
+                },
+                {
+                    "id": "switch-flur-motion-floor2",
+                    "binding": "motion/hallway_2.enabled",
+                    "bindingProvider": "smarthome",
+                    "type": "switch",
+                    "trueColor": "green",
+                    "img": "img/icons/2.0/sensor.png",
+                    "action": {
+                        "adapter": "smarthome",
+                        "method": "trigger",
+                        "payload": {
+                            "deviceId": "motion/hallway_2"
+                        },
+                        "sound": "SCENE"
+                    }
+                }
+            ],
+            "footer": 
+            [
+                {
+                    "id": "hallway_2.occupancy",
+                    "type": "text",
+                    "binding": "motion/hallway_2.occupancy|$true=◆;false=◇",
+                    "bindingProvider": "smarthome",
+                    "align": "left"
+                },
+                {
+                    "id": "hallway_2.temp",
+                    "binding": "motion/hallway_2.temperature",
+                    "bindingProvider": "smarthome",
+                    "decimals": 1,
+                    "offset": 2,
+                    "suffix": "°",
+                    "align": "right"
+                }
+            ]
+        }
+    ]
+}

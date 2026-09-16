@@ -1,0 +1,71 @@
+/* =========================================================
+    CANVAS ELEMENT: PROGRESS BAR
+   ========================================================= */
+:root {
+    --bar-inner-border:         2px;
+}
+
+.progress-small-title {
+
+    display: inline-block;
+    position: absolute;
+
+    color: var(--module-footer-font-color);
+    font-size: 2vmin;
+    line-height: 3.25vmin;
+    font-weight: 200;
+    text-transform: uppercase;
+    
+    left: calc(3 * var(--bar-inner-border));
+}
+
+.progress-value {
+
+    display: inline-block;
+    position: absolute;
+
+    color: var(--module-footer-font-color);
+    font-size: 2vmin;
+    line-height: 3.25vmin;
+
+    right: calc(3 * var(--bar-inner-border));
+}
+
+.progress-border {
+
+    display: block;
+    position: relative;
+    border-radius: var(--corner-radius-button);
+    border: 0.25vmin solid var(--yellow-strong);
+    background: #00000047;
+
+    height: 100%;
+    width: 100%;
+
+}
+
+.progress-bar {
+
+    display: block;
+    position: relative;
+    border-radius: calc(var(--corner-radius-button) * 0.3);
+    
+    /*background: repeating-linear-gradient(-45deg, #528ba2, #528ba2 1.5vmin, var(--main-color) 1.5vmin, var(--main-color) 3vmin);*/
+    background-color: var(--yellow-strong);
+    
+    top: var(--bar-inner-border);
+    left: var(--bar-inner-border);
+    height: calc(100% - (2 * var(--bar-inner-border)));
+}
+
+.progress-icon {
+    
+    background-size: contain;
+    left: -3.5vmin;
+    top: 0;
+    width: 2.75vmin;
+    height: 2.75vmin;
+    display: block;
+    position: absolute;
+
+}

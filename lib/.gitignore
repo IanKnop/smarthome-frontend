@@ -1,0 +1,20 @@
+#ignore private config
+config.json
+config-ian.json
+
+#ignore debug files
+/debug/**
+
+#ignore private view files
+!/config/_views/example.json
+/config/**
+
+#ignore private floor plans (images)
+/img/cars
+/img/floorplans/*
+!/img/floorplans/floorplan.example.svg
+
+#MacOS
+*.DS_Store
+*.DAV
+

@@ -1,0 +1,13 @@
+<!-- This version includes integration of actual outside temperature instead of iobroker forecast value -->
+<div id="{{[id]}}.content" style="{{[content-style]}}" cc-update="true" cc-provider="weather">
+    {{[IF:showTitle:<div id="{[id]}.day" class="cc-weather-day" cc-binding="{[day]}" {[provider]} cc-prefix="Vorhersage für " cc-suffix="" cc-update="true" cc-type="text"></div>
+    <div id="{{[id]}}.weather-text" class="cc-weather-text" style="{[text-style]}" cc-binding="{[weather]}" {[provider]} cc-update="true" cc-type="text"></div>]}}
+    <div id="{{[id]}}.weather-temp-max" class="cc-weather-max-temp" style="{{[maxtemp-style]}}" cc-binding="{{[max-temp]}}" {{[provider]}} cc-prefix="höchstens " cc-suffix="&deg; C" cc-update="true" cc-type="text"></div>
+    <div id="{{[id]}}.weather-temp-min" class="cc-weather-min-temp" style="{{[mintemp-style]}}" cc-binding="{{[min-temp]}}" {{[provider]}} cc-prefix="mindestens " cc-suffix="&deg; C" cc-update="true" cc-type="text"></div>
+    <div id="{{[id]}}.weather-wind" class="cc-weather-wind" style="{{[wind-style]}}" cc-binding="{{[wind]}}" {{[provider]}} cc-update="true" cc-type="text"></div>
+    <div class="cc-weather-icon" style="{{[iconDiv-style]}}">
+        <img id="{{[id]}}.weather-icon" class="cc-weather-icon-image" style="margin: auto; {{[icon-style]}}" cc-binding="{{[icon-url]}}" {{[provider]}} cc-prefix="{{[icon-prefix]}}" cc-suffix="{{[icon-suffix]}}" cc-update="true" cc-type="src" alt></img>
+    </div>
+    <div id="{{[id]}}.weather-temp" class="cc-weather-temp" style="{{[temp-style]}}" cc-type="numeric" cc-binding="climate/garden.temperature" cc-provider="smarthome" cc-suffix="&deg;" cc-decimals="0" cc-update="true" cc-type="text"></div>
+</div>
+<!-- {{[max-temp]}} // climate/garden.temperature -->

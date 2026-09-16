@@ -1,0 +1,28 @@
+{
+    "img": "img/floorplans/cc-plan-2.svg",
+    "canvasElements": [
+        {
+            "type": "buttongroup",
+            "title": "Room",
+            "right": "5%",
+            "top": "30%",
+            "controls": [
+                {
+                    "type": "switch",
+                    "id": "switch-room",
+                    "binding": "group/room",
+                    "bindingProvider": "smarthome",
+                    "img": "img/icons/2.0/power.png",
+                    "action": {
+                        "adapter": "smarthome",
+                        "method": "trigger",
+                        "payload": {
+                            "deviceId": "group/room"
+                        },
+                        "sound": "KEY1"
+                    }
+                }
+            ]
+        }
+    ]
+}
