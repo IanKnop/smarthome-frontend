@@ -16,7 +16,7 @@ this.addEventListener("load", function () {
 function loadIoBrokerConfig() {
 
     var request = new XMLHttpRequest();
-    request.open('GET', 'config/iobroker.json', false);
+    request.open('GET', 'adapters/ioBroker.config.json', false);
     request.send(null);
 
     if (request.status >= 200 && request.status < 300) {

@@ -2,11 +2,10 @@
 .github_token
 config.json
 config-ian.json
-config/iobroker.json
+adapters/ioBroker.config.json
 
 # Private application configuration
 /config/*
-!/config/iobroker.sample.json
 !/config/_views/
 /config/_views/*
 !/config/_views/lights.sample.json
@@ -26,3 +25,4 @@ config/iobroker.json
 # Local tooling and OS files
 .DS_Store
 .vscode/
+._*
