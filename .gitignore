@@ -26,3 +26,8 @@ adapters/ioBroker.config.json
 .DS_Store
 .vscode/
 ._*
+
+# Local extension assets and personal development files
+/img/airlines/
+/scripts/base.config-ian.js
+/scripts/flv/
