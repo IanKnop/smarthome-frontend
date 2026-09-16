@@ -145,7 +145,7 @@ The UI can be assembled using different modules (news, weather, canvas,...). The
 <br/>
 <p align="center">
     <img src="doc/img/screenshot-main.png" alt="Screenshot of main view" width="450">
-    <p align="center">Screenshot of main view with news and weather</p>
+    <p align="center">Screenshot of different types of lists that can be used as canvas elements.</p>
 </p>
 <br/>
 
